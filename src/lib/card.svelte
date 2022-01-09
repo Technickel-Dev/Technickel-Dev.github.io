@@ -19,10 +19,8 @@
     {#if subTitle}
       <div class="mb-2 {textColor}">{subTitle}</div>
     {/if}
-    <slot name="content">
-      <p class="{textColor} text-base">
-        {text}
-      </p>
-    </slot>
+    <p class="{textColor} text-base">
+      {text}
+    </p>
   </div>
 </div>
