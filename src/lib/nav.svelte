@@ -2,7 +2,7 @@
   import NavLink from "./nav_link.svelte";
 </script>
 
-<nav class="flex items-center justify-between flex-wrap bg-sky-500 p-6 shadow-lg shadow-black">
+<nav class="flex items-center justify-between flex-wrap bg-sky-500 p-4 shadow-lg shadow-black">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <svg
       class="fill-current h-8 w-8 mr-2"
