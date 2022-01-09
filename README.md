@@ -1,27 +1,38 @@
-# Website
+# create-svelte
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-## Development server
+## Creating a project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Code scaffolding
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# create a new project in my-app
+npm init svelte@next my-app
+```
 
-## Build
+> Note: the `@next` is temporary
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Developing
 
-## Running unit tests
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm run dev
 
-## Running end-to-end tests
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Building
 
-## Further help
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm run build
+```
+
+> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
