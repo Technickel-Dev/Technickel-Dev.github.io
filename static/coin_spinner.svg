@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6100.0713"
+   height="6099.7197"
+   viewBox="0 0 1613.9772 1613.8843"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="coin_spinner.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.044369197"
+     inkscape:cx="3283.0541"
+     inkscape:cy="2739.629"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1440"
+     inkscape:window-height="855"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(483.70334,563.41107)">
+    <circle
+       r="317.5"
+       style="fill:#808080;stroke:none;stroke-width:105.833;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:211.667, 211.667;stroke-dashoffset:0;paint-order:stroke fill markers"
+       id="path840-3-2"
+       cx="323.28528"
+       cy="243.53105" />
+    <path
+       sodipodi:type="star"
+       style="fill:#999999;stroke:none;stroke-width:105.833;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:211.667, 211.667;stroke-dashoffset:0;paint-order:stroke fill markers"
+       id="path838-7-0"
+       sodipodi:sides="12"
+       sodipodi:cx="323.28524"
+       sodipodi:cy="243.53101"
+       sodipodi:r1="295.83011"
+       sodipodi:r2="285.75003"
+       sodipodi:arg1="0.78539816"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       inkscape:transform-center-x="47.047303"
+       inkscape:transform-center-y="-39.206126"
+       d="m 532.46872,452.71448 -132.617,76.56647 -153.13294,0 -132.61701,-76.56647 -76.566464,-132.61701 -10e-7,-153.13293 76.566465,-132.617009 132.61701,-76.566467 153.13293,-10e-7 132.61701,76.566466 76.56647,132.617011 0,153.13293 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:635px;line-height:1.25;font-family:'Averia Serif Libre';-inkscape-font-specification:'Averia Serif Libre';fill:#0ea5e9;fill-opacity:1;stroke-width:105.833;stroke-miterlimit:4;stroke-dasharray:211.667, 211.667;stroke-dashoffset:0"
+       x="98.803162"
+       y="495.72629"
+       id="text844-2-1"><tspan
+         sodipodi:role="line"
+         id="tspan842-0-5"
+         x="98.803162"
+         y="495.72629"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Averia Serif Libre';-inkscape-font-specification:'Averia Serif Libre';fill:#0ea5e9;fill-opacity:1;stroke-width:105.833;stroke-miterlimit:4;stroke-dasharray:211.667, 211.667;stroke-dashoffset:0">V</tspan></text>
+    <circle
+       r="396.875"
+       cy="242.52144"
+       cx="322.91061"
+       id="path1669"
+       style="fill:none;fill-opacity:1;stroke:#0ea5e9;stroke-width:105.833;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:211.666, 211.666;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="529.16669"
+       cy="243.53035"
+       cx="313.36331"
+       id="path1671"
+       style="fill:none;fill-opacity:1;stroke:#0ea5e9;stroke-width:39.6875;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:952.5, 952.5;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="714.375"
+       cy="243.58778"
+       cx="323.29471"
+       id="path1673"
+       style="fill:none;fill-opacity:1;stroke:#0ea5e9;stroke-width:185.208;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:1111.25, 370.417;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+  </g>
+</svg>

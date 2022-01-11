@@ -4,6 +4,6 @@
 </script>
 
 <Nav />
-<div class="my-4 mx-16">
+<div class="my-4 mx-4">
   <slot />
 </div>
