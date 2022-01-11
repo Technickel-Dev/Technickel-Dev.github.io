@@ -7,7 +7,7 @@
 
 html,
 body {
-  @apply h-full min-h-screen bg-neutral-700 text-white;
+  @apply min-h-screen bg-neutral-700 text-white;
 }
 
 body {

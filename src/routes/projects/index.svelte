@@ -1,5 +1,6 @@
 <script>
   import Card from "$lib/card.svelte";
+  import ProjectCard from "./_project_card.svelte";
 
   let projects = [
     {
@@ -69,8 +70,10 @@
   ];
 </script>
 
-{#each projects as { name, type, description }}
-  <div class="mb-4">
-    <Card title={name} subTitle={type} text={description} />
-  </div>
-{/each}
+<div class="grid grid-cols-3 gap-4 auto-rows-fr grid-flow-row-dense">
+  {#each projects as { name, type, description }}
+    <Card>
+      <ProjectCard title={name} subTitle={type} text={description} />
+    </Card>
+  {/each}
+</div>
