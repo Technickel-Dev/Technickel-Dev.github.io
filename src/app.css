@@ -1,36 +1,16 @@
 /* Write your global styles here, in PostCSS syntax */
+@import url("animation.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  @apply h-full min-h-screen bg-neutral-700 text-white;
+}
+
 body {
   background-image: url("hexagon_pattern.svg");
   background-repeat: repeat;
-}
-
-@keyframes coinFlip {
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-.coin-flip {
-  animation: coinFlip 4s infinite ease-in-out;
-}
-
-@keyframes circleRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.middle-circle {
-  animation: circleRotate 16s infinite linear;
-}
-
-.outer-circle {
-  animation: circleRotate 16s infinite linear;
 }

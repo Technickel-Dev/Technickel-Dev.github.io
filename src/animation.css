@@ -1,0 +1,28 @@
+@keyframes coinFlip {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.coin-flip {
+  animation: coinFlip 4s infinite ease-in-out;
+}
+
+@keyframes ringRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.coin-inner-ring-rotate {
+  animation: ringRotate 8s infinite linear;
+}
+
+.coin-middle-ring-rotate {
+  animation: ringRotate 16s infinite linear;
+  animation-direction: reverse;
+}
+
+.coin-outer-ring-rotate {
+  animation: ringRotate 24s infinite linear;
+}
