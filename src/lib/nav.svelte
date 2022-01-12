@@ -16,7 +16,7 @@
   <a href="/" on:click={closeMenu} class="flex items-center flex-shrink-0 mr-6">
     <img
       class="h-8 w-8 mr-2"
-      src="coin.svg"
+      src="/coin.svg"
       alt="The Technickel logo, a 5 cent Canadian coin (nickel)"
     />
     <span class="font-semibold text-xl tracking-tight">TECHNICKEL</span>
