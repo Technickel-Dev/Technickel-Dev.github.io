@@ -19,7 +19,7 @@
       src="/coin.svg"
       alt="The Technickel logo, a 5 cent Canadian coin (nickel)"
     />
-    <span class="font-semibold text-xl tracking-tight">TECHNICKEL</span>
+    <span class="font-bold text-2xl tracking-tight">TECHNICKEL</span>
   </a>
   <div class="block sm:hidden">
     <button

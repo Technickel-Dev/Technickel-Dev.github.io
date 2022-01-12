@@ -26,3 +26,16 @@
 .coin-outer-ring-rotate {
   animation: ringRotate 24s infinite linear;
 }
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #01579b, 0 0 40px #01579b, 0 0 50px #01579b;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #0ea5e9, 0 0 40px #0ea5e9, 0 0 50px #0ea5e9;
+  }
+}
+
+.glow {
+  animation: glow 1s infinite ease-in-out alternate;
+}
