@@ -19,16 +19,33 @@
 </script>
 
 <script>
-  import { base } from "$app/paths";
   export let blogs;
+  let searchQuery = "";
+  let filteredBlogs = [];
+
+  $: {
+    if (searchQuery) {
+      filteredBlogs = blogs.filter((blog) => {
+        return blog.metadata.title.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+      console.log(filteredBlogs);
+    } else {
+      filteredBlogs = [...blogs];
+    }
+  }
 </script>
 
-<h1>All Blog</h1>
-
+<h1>Blogs</h1>
+<input
+  type="text"
+  class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black"
+  placeholder="Search All Blogs"
+  bind:value={searchQuery}
+/>
 <ul>
-  {#each blogs as { path, metadata: { title, tags } }}
+  {#each filteredBlogs as { path, metadata: { title, tags } }}
     <li>
-      <a href={`${base}/blog/${path.replace(".md", "")}`}>{title}</a>
+      <a href={`/blog/${path.replace(".md", "")}`}>{title}</a>
     </li>
   {/each}
 </ul>
