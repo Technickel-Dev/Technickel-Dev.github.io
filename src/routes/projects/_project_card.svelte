@@ -9,7 +9,7 @@
 {#if imageSrc}
   <img class="w-full" src={imageSrc} {alt} />
 {/if}
-<div class="px-6 py-4">
+<div class={imageSrc ? "mt-4" : ""}>
   <div class="font-bold text-xl mb-1">{title}</div>
   <div class="mb-2 text-xs text-neutral-300">{subTitle}</div>
   <p class="text-base text-center">

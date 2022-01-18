@@ -1,5 +1,5 @@
 <svg
-  class="xl:h-5/6 lg:h-5/6"
+  class="xl:h-4/6 lg:h-5/6"
   viewBox="0 0 2250 2250"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
