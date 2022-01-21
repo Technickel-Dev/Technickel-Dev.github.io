@@ -55,7 +55,7 @@
         <p>{description}</p>
         <div>
           {#each tags as tag}
-            <a class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0" href={`/tags/${tag}`}>
+            <a class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0" href={`/`}>
               <span class="align-top text-sm">{tag}</span>
             </a>
           {/each}
