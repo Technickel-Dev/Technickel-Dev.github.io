@@ -28,7 +28,6 @@
       filteredBlogs = blogs.filter((blog) => {
         return blog.metadata.title.toLowerCase().includes(searchQuery.toLowerCase());
       });
-      console.log(filteredBlogs);
     } else {
       filteredBlogs = [...blogs];
     }
@@ -36,16 +35,34 @@
 </script>
 
 <h1>Blogs</h1>
-<input
-  type="text"
-  class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black"
-  placeholder="Search All Blogs"
-  bind:value={searchQuery}
-/>
-<ul>
-  {#each filteredBlogs as { path, metadata: { title, tags } }}
+<div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 mb-4">
+  <input
+    type="text"
+    class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black focus:outline-none"
+    placeholder="Search All Blogs"
+    bind:value={searchQuery}
+  />
+</div>
+
+<ul class="list-none m-0">
+  {#each filteredBlogs as { path, metadata: { title, description, tags } }}
     <li>
-      <a href={`/blog/${path.replace(".md", "")}`}>{title}</a>
+      <a
+        class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col gap-2"
+        href={`/blog/${path.replace(".md", "")}`}
+      >
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <div>
+          {#each tags as tag}
+            <a class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0" href={`/tags/${tag}`}>
+              <span class="align-top text-sm">{tag}</span>
+            </a>
+          {/each}
+        </div>
+      </a>
     </li>
+  {:else}
+    <p>No blogs found...</p>
   {/each}
 </ul>

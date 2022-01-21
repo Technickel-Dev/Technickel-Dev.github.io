@@ -1,7 +1,0 @@
----
-title: SVGs
----
-
-# {title}
-
-## WOW

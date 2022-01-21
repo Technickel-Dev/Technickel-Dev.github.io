@@ -22,12 +22,14 @@
     },
     {
       name: "Technickel.dev",
+      imageSrc: "/technickel_dev.png",
       type: "Web",
       description:
         "This is the website you are on right now! Its purpose is to provide information about me and my projects. It includes what I do, how we can get in contact and how you can support me!"
     },
     {
       name: "Battlesnakes: Danger Noodle",
+      imageSrc: "/battlesnakes.png",
       type: "Application",
       description:
         "Application built to play the game snake competitively against other developers around the world."
@@ -51,6 +53,7 @@
     },
     {
       name: "Shuttle",
+      imageSrc: "/shuttle_music_player.png",
       type: "Open Source",
       description:
         "Merged contributions to open source app Shuttle Music Player, a local Android music player."
@@ -70,10 +73,11 @@
   ];
 </script>
 
-<div class="grid grid-cols-3 gap-4 auto-rows-fr grid-flow-row-dense">
-  {#each projects as { name, type, description }}
+<h1>Projects</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr grid-flow-row-dense">
+  {#each projects as { name, type, description, imageSrc }}
     <Card>
-      <ProjectCard title={name} subTitle={type} text={description} />
+      <ProjectCard {imageSrc} title={name} subTitle={type} text={description} />
     </Card>
   {/each}
 </div>
