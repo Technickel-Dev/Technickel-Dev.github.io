@@ -2,7 +2,7 @@
   import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
 </script>
 
-<div class="flex flex-wrap justify-around align-middle">
+<div class="flex flex-col gap-4 items-center">
   <ShieldBadgeButton
     url="https://twitter.com/Technickel3"
     badge="-@Technickel3-1ca0f1"

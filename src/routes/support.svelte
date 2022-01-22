@@ -1,6 +1,8 @@
 <script>
   import Card from "$lib/card.svelte";
   import MutedText from "$lib/muted_text.svelte";
+  import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
+  import SocialMediaBadges from "$lib/_social_media_badges.svelte";
 </script>
 
 <h1>Support</h1>
@@ -9,12 +11,21 @@
     <h2>Follow</h2>
     <MutedText text="Something as simple as a follow really helps me out!" />
     <hr />
+    <SocialMediaBadges />
   </Card>
   <Card>
     <h2>Donate</h2>
     <MutedText text="Funding my work helps me afford wacky projects!" />
-
     <hr />
+    <div class="flex flex-col gap-4 items-center">
+      <ShieldBadgeButton
+        url="https://www.buymeacoffee.com/pIvCSjDLo"
+        badge="Buy_Me_A_Coffee-FFDD00"
+        logo="buy-me-a-coffee"
+        logoColor="black"
+        alt="BuyMeACoffee Badge"
+      />
+    </div>
   </Card>
   <div class="md:col-span-2">
     <Card>

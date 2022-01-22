@@ -26,7 +26,11 @@
   $: {
     if (searchQuery) {
       filteredBlogs = blogs.filter((blog) => {
-        return blog.metadata.title.toLowerCase().includes(searchQuery.toLowerCase());
+        return (
+          // Search for blogs based on title or description
+          blog.metadata.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          blog.metadata.description.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+        );
       });
     } else {
       filteredBlogs = [...blogs];
