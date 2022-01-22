@@ -1,6 +1,7 @@
 ---
 title: "SVGs: A Scalable Graphics Format"
 author: Bradley Leonard
+date: "2022-01-21"
 description: An introduction the the wondeful world of SVGs! Starting at the bare basics, this post goes into what SVGs are, how to use them and why you might use SVGs over other traditional graphics formats in web design.
 tags:
   - svg
@@ -11,13 +12,16 @@ tags:
 
 # {title}
 
+{date} - {author}
+<br>
+
 ## What is an SVG?
 
 The future of web graphics is ever changing but time and time again you will hear one special graphic uttered by many developers. That graphic goes by the name of SVG, but what exactly is it? SVG stands for _scalable vector graphics_. It is an XML-based markup language for describing two-dimensional based vector graphics. That's still a pretty confusing way to describe it, so lets think of it this way.<br><br>
 
 You are most likely familiar with the most popular type of graphic called _Raster Graphics_. Raster Graphics are images made up of individual pixels with the most common types being PNG and JPEG. You interact with Raster Graphics everyday without even knowing it. An SVG on the other hand, can be simplified down to individual pieces of math and code to describe a shape.<br><br>
 
-## SVG in action
+## SVGs in action
 
 To see how an SVG works, let's look at the following block of code that describes the shape of a yellow circle with a green outline.<br><br>
 

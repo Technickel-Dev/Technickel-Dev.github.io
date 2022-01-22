@@ -1,5 +1,5 @@
 <script context="module">
-  const allBlogs = import.meta.glob("./*.md");
+  const allBlogs = import.meta.glob("./posts/*.md");
   let body = [];
 
   for (let path in allBlogs) {

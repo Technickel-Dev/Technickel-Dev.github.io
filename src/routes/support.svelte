@@ -34,6 +34,13 @@
         text="Signing up using any of my referral links is another way you could support me!"
       />
       <hr class="my-4" />
+      <p>
+        Publish0x is a platform where you can earn crypto for reading AND publishing articles. Sign
+        up using my
+        <a href="https://www.publish0x.com?a=l9avxW5dG1" class="text-sky-600 hover:text-sky-700">
+          Publish0x referral link
+        </a>
+      </p>
     </Card>
   </div>
 </div>
