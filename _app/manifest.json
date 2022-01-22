@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-372232d0.js",
+    "file": "start-94de48e6.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -15,7 +15,8 @@
       "src/routes/contact/index.svelte",
       "src/routes/support.svelte",
       "src/routes/blog/index.svelte",
-      "src/routes/blog/svgs-a-scalable-graphics-format.md"
+      "src/routes/blog/posts/__layout.svelte",
+      "src/routes/blog/posts/svgs-a-scalable-graphics-format.md"
     ],
     "css": [
       "assets/start-d5b4de3e.css"
@@ -30,7 +31,7 @@
       "_vendor-8f9f9ec3.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-d744072e.css"
+      "assets/pages/__layout.svelte-fc23d273.css"
     ]
   },
   ".svelte-kit/build/components/error.svelte": {
@@ -73,7 +74,7 @@
     ]
   },
   "src/routes/support.svelte": {
-    "file": "pages/support.svelte-bbb6f860.js",
+    "file": "pages/support.svelte-2daa4243.js",
     "src": "src/routes/support.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -84,7 +85,7 @@
     ]
   },
   "src/routes/blog/index.svelte": {
-    "file": "pages/blog/index.svelte-f12d7831.js",
+    "file": "pages/blog/index.svelte-6e22edd7.js",
     "src": "src/routes/blog/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -93,12 +94,22 @@
       "_vendor-8f9f9ec3.js"
     ],
     "dynamicImports": [
-      "src/routes/blog/svgs-a-scalable-graphics-format.md"
+      "src/routes/blog/posts/svgs-a-scalable-graphics-format.md"
     ]
   },
-  "src/routes/blog/svgs-a-scalable-graphics-format.md": {
-    "file": "pages/blog/svgs-a-scalable-graphics-format.md-e610e8af.js",
-    "src": "src/routes/blog/svgs-a-scalable-graphics-format.md",
+  "src/routes/blog/posts/__layout.svelte": {
+    "file": "pages/blog/posts/__layout.svelte-b5163f91.js",
+    "src": "src/routes/blog/posts/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-8f9f9ec3.js",
+      "_card-905ca6a8.js"
+    ]
+  },
+  "src/routes/blog/posts/svgs-a-scalable-graphics-format.md": {
+    "file": "pages/blog/posts/svgs-a-scalable-graphics-format.md-a2963a4c.js",
+    "src": "src/routes/blog/posts/svgs-a-scalable-graphics-format.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
