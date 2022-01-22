@@ -73,6 +73,10 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Projects - Technickel</title>
+</svelte:head>
+
 <div class="flex flex-col">
   <h1>Projects</h1>
   <div

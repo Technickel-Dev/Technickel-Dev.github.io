@@ -2,6 +2,10 @@
   import CoinSpinner from "$lib/coin_spinner.svelte";
 </script>
 
+<svelte:head>
+  <title>Home - Technickel</title>
+</svelte:head>
+
 <div class="flex-1 flex flex-col sm:flex-row -m-8">
   <div class="flex-1 flex items-center justify-center">
     <CoinSpinner />

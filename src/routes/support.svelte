@@ -5,6 +5,10 @@
   import SocialMediaBadges from "$lib/social_media_badges.svelte";
 </script>
 
+<svelte:head>
+  <title>Support - Technickel</title>
+</svelte:head>
+
 <div class="flex-1 flex flex-col">
   <h1>Support</h1>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">

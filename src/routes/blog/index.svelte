@@ -38,6 +38,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Blog - Technickel</title>
+</svelte:head>
+
 <div class="flex flex-col">
   <h1>Blogs</h1>
   <div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 mb-4">
