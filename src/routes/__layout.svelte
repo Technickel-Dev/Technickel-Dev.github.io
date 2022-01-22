@@ -3,9 +3,9 @@
   import "../app.css";
 </script>
 
-<div class="h-full flex flex-col">
+<div class="flex-1 flex flex-col">
   <Nav />
-  <div class="flex-1 m-8">
+  <div class="flex-1 flex p-8">
     <slot />
   </div>
 </div>
