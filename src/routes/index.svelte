@@ -11,9 +11,11 @@
     <CoinSpinner />
   </div>
   <div
-    class="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-neutral-600 to-neutral-800"
+    class="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-neutral-600 to-neutral-800 p-16 sm:curve"
   >
-    <h1 class="glow text-4xl">TECHNICKEL</h1>
-    <p class="italic text-2xl font-light text-center">Just a guy's five<br />cents on tech.</p>
+    <div class="sm:translate-x-1/4">
+      <h1 class="glow text-4xl">TECHNICKEL</h1>
+      <p class="italic text-2xl font-light text-center">Just a guy's five<br />cents on tech.</p>
+    </div>
   </div>
 </div>
