@@ -22,13 +22,19 @@
       <h2>Donate</h2>
       <MutedText text="Funding my work helps me afford wacky projects!" />
       <hr />
-      <div class="flex flex-col gap-4 items-center">
+      <div class="grid flex-cols-1 gap-4 place-items-center">
         <ShieldBadgeButton
           url="https://www.buymeacoffee.com/pIvCSjDLo"
           badge="Buy_Me_A_Coffee-FFDD00"
           logo="buy-me-a-coffee"
           logoColor="black"
           alt="BuyMeACoffee Badge"
+        />
+        <ShieldBadgeButton
+          url="https://whatisbat.com/2018/12/19/how-to-tip-a-website-using-brave-bat/"
+          badge="BAT-FB542B"
+          logo="Brave"
+          alt="Brave Badge"
         />
       </div>
     </Card>
