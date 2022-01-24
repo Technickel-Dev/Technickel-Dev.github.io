@@ -15,17 +15,17 @@
 		
 
 		<link rel="stylesheet" href="/_app/assets/start-d5b4de3e.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-8bd739db.css">
-		<link rel="modulepreload" href="/_app/start-1fcb028c.js">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-b788d02d.css">
+		<link rel="modulepreload" href="/_app/start-9a8ec17d.js">
 		<link rel="modulepreload" href="/_app/chunks/vendor-d2f2f4a8.js">
 		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
 		<link rel="modulepreload" href="/_app/pages/__layout.svelte-e323922f.js">
-		<link rel="modulepreload" href="/_app/pages/blog/posts/__layout.svelte-6f28994a.js">
+		<link rel="modulepreload" href="/_app/pages/blog/posts/__layout.svelte-c5b4e16f.js">
 		<link rel="modulepreload" href="/_app/chunks/card-bc1076b0.js">
-		<link rel="modulepreload" href="/_app/pages/blog/posts/svgs-a-scalable-graphics-format.md-d59fea9c.js">
+		<link rel="modulepreload" href="/_app/pages/blog/posts/svgs-a-scalable-graphics-format.md-01a6c1c4.js">
 
 		<script type="module">
-			import { start } from "/_app/start-1fcb028c.js";
+			import { start } from "/_app/start-9a8ec17d.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":""},
@@ -38,8 +38,8 @@
 					error: null,
 					nodes: [
 						import("/_app/pages/__layout.svelte-e323922f.js"),
-						import("/_app/pages/blog/posts/__layout.svelte-6f28994a.js"),
-						import("/_app/pages/blog/posts/svgs-a-scalable-graphics-format.md-d59fea9c.js")
+						import("/_app/pages/blog/posts/__layout.svelte-c5b4e16f.js"),
+						import("/_app/pages/blog/posts/svgs-a-scalable-graphics-format.md-01a6c1c4.js")
 					],
 					url: new URL("http://prerender/blog/posts/svgs-a-scalable-graphics-format"),
 					params: {}
@@ -58,12 +58,16 @@
       <a href="/projects" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Projects</a>
       <a href="/contact" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Contact</a>
       <a href="/support" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Support</a></div></div></nav>
-  <div class="flex-1 flex p-8"><div class="flex justify-center"><div class="max-w-4xl"><div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600"><h1>SVGs: A Scalable Graphics Format</h1>
+  <div class="flex-1 flex p-8"><div class="flex-1 flex flex-col justify-center"><div class="flex justify-center mb-4"><a class="py-2 px-4 bg-sky-500 rounded-full text-center m-auto" href="/blog">Back to Blogs</a></div>
+  <div class="max-w-4xl m-auto"><div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600"><h1>SVGs: A Scalable Graphics Format</h1>
 <p>2022-01-21 - Bradley Leonard</p>
 <br>
 <h2>What is an SVG?</h2>
-<p>The future of web graphics is ever changing but time and time again you will hear one special graphic uttered by many developers. That graphic goes by the name of SVG, but what exactly is it? SVG stands for <em>scalable vector graphics</em>. It is an XML-based markup language for describing two-dimensional based vector graphics. That’s still a pretty confusing way to describe it, so lets think of it this way.<br><br></p>
+<p>The future of web graphics is ever changing but time and time again you will hear one special graphic uttered through the grape vine. That graphic goes by the name of SVG, but what exactly is it? SVG stands for <em>scalable vector graphics</em>. It is an XML-based markup language for describing two-dimensional based vector graphics. That’s still a pretty confusing way to describe it, so lets think of it this way.<br><br></p>
 <p>You are most likely familiar with the most popular type of graphic called <em>Raster Graphics</em>. Raster Graphics are images made up of individual pixels with the most common types being PNG and JPEG. You interact with Raster Graphics everyday without even knowing it. An SVG on the other hand, can be simplified down to individual pieces of math and code to describe a shape.<br><br></p>
+<p><img src="/blog/raster_vs_vector.png" alt="Difference between bitmap and vector images" title="Raster Vs. Vector"></p>
+<div class="text-center"><p><em>Difference between raster and vector images. (Yug et al., <a href="https://commons.wikimedia.org/w/index.php?curid=1183592" rel="nofollow">https://commons.wikimedia.org/w/index.php?curid=1183592</a>)</em></p>
+</div><br>
 <h2>SVGs in action</h2>
 <p>To see how an SVG works, let’s look at the following block of code that describes the shape of a yellow circle with a green outline.<br><br></p>
 <pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>40<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>green<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yellow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>circle</span><span class="token punctuation">></span></span></code><!-- HTML_TAG_END --></pre>
@@ -76,14 +80,21 @@ Let&#39;s break down what this actually means:<br><br>
 <li>The following argument, <em>stroke-width</em>, defines how big the painters brush actually is.</li>
 <li>Finally, the whole circle is colored yellow using <em>fill</em>, inside of the outline we did with stroke.<br><br></li></ul>
 <p>Voila! The computer handles the rest by drawing the circle using the parameters you have provided. The end result looks something like this:</p>
-<br><br>
+<p><img src="/blog/yellow_circle_svg.png" alt="SVG of a yellow circle with green outline" title="Yellow Circle SVG"></p>
+<div class="text-center"><p><em>SVG of a yellow circle with green outline</em></p>
+</div><br>
 <h2>Why should we be using SVGs?</h2>
 <p>The most important part to SVGs is the scalability of them. Unlike a Raster image, when an SVG is made bigger or smaller, it doesn’t lose any detail. The math just calculates how that SVG would look at the new size! They are also super small in file size compared to JPGs and PNGs and can be optimized. Another neat fact is that depending on how it is used, they are natively accessible since they can be read like a book, unlike images. Finally, the most useful part of SVGs in my opinion is the fact they can be animated. While a normal image animation may take a lot of effort to put together, an SVG can be animated directly by changing the math that creates the shapes.<br><br></p>
 <h2>Uses for an SVG</h2>
-<p>The use of an SVG is only limited by your technology and imagination, with uses being logos, brochures, mockups, websites, backgrounds, art, and so much more.<br><br></p>
-<h2>How to do your own SVGs</h2>
+<p>The use of an SVG is only limited by your technology and imagination. Some uses include logos, brochures, mockups, websites, backgrounds, art, and so much more. The website that you are reading this blog on has SVGs baked in to a few places including the animated landing page. I’ve also made SVG art in the past for fun Canada Day celebrations. The posibilities are up to you to decide!<br><br></p>
+<p><img src="/blog/canada_day_svg.png" alt="SVG celebrating Canada Day" title="Canada Day SVG"></p>
+<div class="text-center"><p><em>SVG celebrating Canada Day</em></p>
+</div><br>
+<h2>How to make your own SVGs</h2>
+<p>There are a number of ways to make your own SVGs, and it’s really easy to get started. For some free tools, all you need is a browser and some kind of text editor. (Ex. Chrome and VSCode) The browser understands how to display SVGs to see what you can make. Inkscape (<a href="https://inkscape.org/" rel="nofollow">https://inkscape.org/</a>) is also a free tool dedicated to SVG design. On the paid side of the spectrum, Photoshop (<a href="https://www.adobe.com/ca/products/photoshop.html" rel="nofollow">https://www.adobe.com/ca/products/photoshop.html</a>) and Affinity Designer (<a href="https://affinity.serif.com/en-us/designer/" rel="nofollow">https://affinity.serif.com/en-us/designer/</a>) have powerful SVG functionality built in. I personally use Inkscape and Affinity Designer though the tools mentioned are not the only ones out there. To learn more about SVG shapes and parameters, have a quick read through the Mozilla Docs (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/SVG</a>) as they are really good and my go to when I want to learn something about SVGs.<br><br></p>
 <h2>Recap</h2>
-<p>Overall, SVGs may not be the only web graphic solution out there, but they are definitely a powerhouse hidden in a small and easy to use package. It’s no doubt that as we find new and exciting ways to convey our information with images, that SVGs will stay high in importance.</p></div></div></div></div></div>
+<p>Overall, SVGs may not be the only web graphic solution out there, but they are definitely a powerhouse hidden in a small and easy to use package. It’s no doubt that as we find new and exciting ways to convey our information with images, that SVGs will stay high in importance. Give SVGs a try, you never know what cool things you may end up making!</p></div></div>
+  <div class="flex justify-center mt-4"><a class="py-2 px-4 bg-sky-500 rounded-full text-center m-auto" href="/blog">Back to Blogs</a></div></div></div></div>
 
 </div>
   </body>
