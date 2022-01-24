@@ -18,6 +18,9 @@
   ul {
     @apply list-disc ml-4;
   }
+  img {
+    @apply m-auto;
+  }
 }
 
 body {

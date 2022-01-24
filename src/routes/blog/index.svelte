@@ -57,7 +57,7 @@
     {#each filteredBlogs as { path, metadata: { title, description, tags } }}
       <li>
         <a
-          class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col gap-2"
+          class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col gap-2 mb-4"
           href={`/blog/${path.replace(".md", "")}`}
         >
           <h2>{title}</h2>
