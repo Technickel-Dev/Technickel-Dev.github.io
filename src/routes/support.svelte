@@ -45,12 +45,18 @@
           text="Signing up using any of my referral links is another way you could support me!"
         />
         <hr class="my-4" />
-        <p>
+        <p class="mb-4">
           Publish0x is a platform where you can earn crypto for reading AND publishing articles.
           Sign up using my
           <a href="https://www.publish0x.com?a=l9avxW5dG1" class="text-sky-600 hover:text-sky-700">
-            Publish0x referral link
+            Publish0x referral link!
           </a>
+        </p>
+        <p>
+          Coinbase is a cryptocurrency exchange platform. Sign up using my
+          <a href="https://www.coinbase.com/join/leonar_9yb">Coinbase referral link</a> and we will both
+          get some bonus cyrpto after you buy or sell more than the threshold amount. Keep in mind buying
+          and selling crypto is unpredicatble and may result in loss of money. Use at your own risk!
         </p>
       </Card>
     </div>

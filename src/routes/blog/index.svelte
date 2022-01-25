@@ -57,14 +57,17 @@
     {#each filteredBlogs as { path, metadata: { title, description, tags } }}
       <li>
         <a
-          class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col gap-2 mb-4"
+          class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col bg- gap-2 mb-4 text-white hover:text-stone-300"
           href={`/blog/${path.replace(".md", "")}`}
         >
           <h2>{title}</h2>
           <p>{description}</p>
           <div>
             {#each tags as tag}
-              <a class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0" href={`/`}>
+              <a
+                class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0 text-white hover:text-stone-300"
+                href={`/`}
+              >
                 <span class="align-top text-sm">{tag}</span>
               </a>
             {/each}

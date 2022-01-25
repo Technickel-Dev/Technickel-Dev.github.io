@@ -17,6 +17,6 @@
     {text}
   </p>
   {#if url}
-    <a class="py-2 px-4 bg-sky-500 rounded-full text-center" href={url}>Check it out here!</a>
+    <a class="btn" href={url}>Check it out here!</a>
   {/if}
 </div>
