@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-9a8ec17d.js",
+    "file": "start-a5748223.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -16,6 +16,7 @@
       "src/routes/support.svelte",
       "src/routes/blog/index.svelte",
       "src/routes/blog/posts/__layout.svelte",
+      "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
       "src/routes/blog/posts/svgs-a-scalable-graphics-format.md"
     ],
     "css": [
@@ -23,7 +24,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-e323922f.js",
+    "file": "pages/__layout.svelte-8c63c74f.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -31,7 +32,7 @@
       "_vendor-d2f2f4a8.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-b788d02d.css"
+      "assets/pages/__layout.svelte-77745a8f.css"
     ]
   },
   ".svelte-kit/build/components/error.svelte": {
@@ -53,7 +54,7 @@
     ]
   },
   "src/routes/projects/index.svelte": {
-    "file": "pages/projects/index.svelte-c06db768.js",
+    "file": "pages/projects/index.svelte-1d784d4d.js",
     "src": "src/routes/projects/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -74,7 +75,7 @@
     ]
   },
   "src/routes/support.svelte": {
-    "file": "pages/support.svelte-f2862376.js",
+    "file": "pages/support.svelte-efe93457.js",
     "src": "src/routes/support.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -85,7 +86,7 @@
     ]
   },
   "src/routes/blog/index.svelte": {
-    "file": "pages/blog/index.svelte-563d944b.js",
+    "file": "pages/blog/index.svelte-482062fd.js",
     "src": "src/routes/blog/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -94,11 +95,12 @@
       "_vendor-d2f2f4a8.js"
     ],
     "dynamicImports": [
+      "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
       "src/routes/blog/posts/svgs-a-scalable-graphics-format.md"
     ]
   },
   "src/routes/blog/posts/__layout.svelte": {
-    "file": "pages/blog/posts/__layout.svelte-c5b4e16f.js",
+    "file": "pages/blog/posts/__layout.svelte-fc90a71e.js",
     "src": "src/routes/blog/posts/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -107,8 +109,17 @@
       "_card-bc1076b0.js"
     ]
   },
+  "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md": {
+    "file": "pages/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md-360b341c.js",
+    "src": "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-d2f2f4a8.js"
+    ]
+  },
   "src/routes/blog/posts/svgs-a-scalable-graphics-format.md": {
-    "file": "pages/blog/posts/svgs-a-scalable-graphics-format.md-01a6c1c4.js",
+    "file": "pages/blog/posts/svgs-a-scalable-graphics-format.md-b86cebcb.js",
     "src": "src/routes/blog/posts/svgs-a-scalable-graphics-format.md",
     "isEntry": true,
     "isDynamicEntry": true,
