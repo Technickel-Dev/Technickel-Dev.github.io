@@ -1,38 +1,35 @@
-# create-svelte
+# Technickel.dev
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+## 📋 Table of Contents
+1. [Usage](#Usage)
+2. [Demo](#Demo)
+3. [Installation](#Installation)
+4. [Support](#Support)
 
-## Creating a project
+## ✨ Usage
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
+## ▶️ Demo
+You don't need to run this repo yourself to see the website in action: [Check it out here](https://technickel.dev/)
+## 🛠️ Installation
+- Download the required packages:
 ```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+yarn install
 ```
+This will install all dependencies needed to run the app.
 
-## Building
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
+- Run the development server:
 ```
+yarn dev
+```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🙏 Support
+You think the world needs more of my creations? Want to help motivate me more? Check out the my link below.
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+[![BuyMeACoffee Badge](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/pIvCSjDLo)
+
+P.S. Your support doesn't have to be monetary, I also accept praise on any of my social media channels :)
+
+P.P.S. If your favorite channel of support isn't listed, we can change that. Just bring it to my attention!
