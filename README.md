@@ -1,4 +1,5 @@
 # Technickel.dev
+[![Powered By Sveltekit](https://img.shields.io/badge/powered%20by-svelte-FF3C02.svg?style=flat&logo=svelte)](https://kit.svelte.dev/)
 
 ## 📋 Table of Contents
 1. [Usage](#Usage)
