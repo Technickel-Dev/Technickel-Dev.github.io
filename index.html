@@ -5,44 +5,18 @@
     <meta name="description" content="My personal website! Using SvelteKit, it's a place for me to showcase my projects and display my brand. My five cents on tech!" />
     <link rel="icon" type="image/svg+xml" href="./coin.svg" />
     <link rel="alternate icon" href="./favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Markdown code highlighting -->
     <link href="/prism.css" rel="stylesheet" />
 
-    <title>Home - Technickel</title>
-
-		
-
-		<link rel="stylesheet" href="/_app/assets/start-d5b4de3e.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-77745a8f.css">
-		<link rel="modulepreload" href="/_app/start-a5748223.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-d2f2f4a8.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-8c63c74f.js">
-		<link rel="modulepreload" href="/_app/pages/index.svelte-b4c8e631.js">
-
-		<script type="module">
-			import { start } from "/_app/start-a5748223.js";
-			start({
-				target: document.querySelector("#svelte"),
-				paths: {"base":"","assets":""},
-				session: {},
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-8c63c74f.js"),
-						import("/_app/pages/index.svelte-b4c8e631.js")
-					],
-					url: new URL("http://prerender/"),
-					params: {}
-				}
-			});
-		</script>
+    <meta http-equiv="content-security-policy" content=""><title>Home - Technickel</title>
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-87b20cda.css">
+	<link rel="modulepreload" href="/_app/start-296038c2.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-5cedbe03.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-caa24624.js">
+	<link rel="modulepreload" href="/_app/pages/index.svelte-5f6591f6.js">
   </head>
   <body>
     <div id="svelte" class="flex flex-1">
@@ -55,7 +29,7 @@
       <a href="/projects" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Projects</a>
       <a href="/contact" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Contact</a>
       <a href="/support" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Support</a></div></div></nav>
-  <div class="flex-1 flex p-8">
+  <div class="flex-1 flex p-4 md:p-8 justify-center">
 
 <div class="flex-1 flex flex-col sm:flex-row -m-8"><div class="flex-1 flex items-center justify-center">
 <svg class="max-h-[calc(100vh_-_4rem)]" viewBox="0 0 2250 2250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 1.5"><g id="coin" class="coin-flip origin-center"><circle id="outer_coin" cx="1125" cy="1125" r="505.208" style="fill: #808080"></circle><path id="inner_coin" d="M1011.54,700.352l227.525,0.162l196.961,113.904l113.621,197.123l-0.162,227.525l-113.904,196.961l-197.123,113.621l-227.525,-0.162l-196.961,-113.904l-113.621,-197.123l0.162,-227.525l113.904,-196.961l197.123,-113.621Z" style="fill: #999"></path><text id="victory_v" x="826.659px" y="1453.49px" style="font-family: 'AveriaSerifLibre-Regular', 'Averia Serif Libre'; font-size: 843.925px; fill: #0ea5e9; ">V
@@ -63,6 +37,27 @@
   <div class="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-neutral-600 to-neutral-800 p-16 sm:curve"><div class="sm:translate-x-1/4"><h1 class="glow text-4xl">TECHNICKEL</h1>
       <p class="italic text-2xl font-light text-center">Just a guy&#39;s five<br>cents on tech.</p></div></div></div></div></div>
 
-</div>
+
+		<script type="module" data-hydrate="gt9wf4">
+		import { start } from "/_app/start-296038c2.js";
+		start({
+			target: document.querySelector('[data-hydrate="gt9wf4"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-caa24624.js"),
+						import("/_app/pages/index.svelte-5f6591f6.js")
+				],
+				url: new URL("http://sveltekit-prerender/"),
+				params: {}
+			}
+		});
+	</script></div>
   </body>
 </html>

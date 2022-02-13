@@ -1,15 +1,15 @@
 {
-  ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-a5748223.js",
-    "src": ".svelte-kit/build/runtime/internal/start.js",
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-296038c2.js",
+    "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js",
+      "_vendor-5cedbe03.js",
       "_preload-helper-ec9aa979.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
-      ".svelte-kit/build/components/error.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
       "src/routes/index.svelte",
       "src/routes/projects/index.svelte",
       "src/routes/contact/index.svelte",
@@ -18,81 +18,78 @@
       "src/routes/blog/posts/__layout.svelte",
       "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
       "src/routes/blog/posts/svgs-a-scalable-graphics-format.md"
-    ],
-    "css": [
-      "assets/start-d5b4de3e.css"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-8c63c74f.js",
+    "file": "pages/__layout.svelte-caa24624.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-77745a8f.css"
+      "assets/pages/__layout.svelte-87b20cda.css"
     ]
   },
-  ".svelte-kit/build/components/error.svelte": {
-    "file": "error.svelte-75396678.js",
-    "src": ".svelte-kit/build/components/error.svelte",
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-90efe952.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-b4c8e631.js",
+    "file": "pages/index.svelte-5f6591f6.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   },
   "src/routes/projects/index.svelte": {
-    "file": "pages/projects/index.svelte-1d784d4d.js",
+    "file": "pages/projects/index.svelte-c66b09c6.js",
     "src": "src/routes/projects/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js",
-      "_card-bc1076b0.js"
+      "_vendor-5cedbe03.js",
+      "_card-07d83c98.js"
     ]
   },
   "src/routes/contact/index.svelte": {
-    "file": "pages/contact/index.svelte-89d1e0dd.js",
+    "file": "pages/contact/index.svelte-32461905.js",
     "src": "src/routes/contact/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js",
-      "_card-bc1076b0.js",
-      "_social_media_badges-9f957b26.js"
+      "_vendor-5cedbe03.js",
+      "_card-07d83c98.js",
+      "_social_media_badges-1038fa70.js"
     ]
   },
   "src/routes/support.svelte": {
-    "file": "pages/support.svelte-efe93457.js",
+    "file": "pages/support.svelte-259284a1.js",
     "src": "src/routes/support.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js",
-      "_card-bc1076b0.js",
-      "_social_media_badges-9f957b26.js"
+      "_vendor-5cedbe03.js",
+      "_card-07d83c98.js",
+      "_social_media_badges-1038fa70.js"
     ]
   },
   "src/routes/blog/index.svelte": {
-    "file": "pages/blog/index.svelte-482062fd.js",
+    "file": "pages/blog/index.svelte-17403516.js",
     "src": "src/routes/blog/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-ec9aa979.js",
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ],
     "dynamicImports": [
       "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
@@ -100,49 +97,49 @@
     ]
   },
   "src/routes/blog/posts/__layout.svelte": {
-    "file": "pages/blog/posts/__layout.svelte-fc90a71e.js",
+    "file": "pages/blog/posts/__layout.svelte-5b860bad.js",
     "src": "src/routes/blog/posts/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js",
-      "_card-bc1076b0.js"
+      "_vendor-5cedbe03.js",
+      "_card-07d83c98.js"
     ]
   },
   "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md": {
-    "file": "pages/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md-360b341c.js",
+    "file": "pages/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md-3666237e.js",
     "src": "src/routes/blog/posts/dns-verification-for-your-personal-website-with-brave-creators.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   },
   "src/routes/blog/posts/svgs-a-scalable-graphics-format.md": {
-    "file": "pages/blog/posts/svgs-a-scalable-graphics-format.md-b86cebcb.js",
+    "file": "pages/blog/posts/svgs-a-scalable-graphics-format.md-2a208092.js",
     "src": "src/routes/blog/posts/svgs-a-scalable-graphics-format.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   },
-  "_vendor-d2f2f4a8.js": {
-    "file": "chunks/vendor-d2f2f4a8.js"
+  "_vendor-5cedbe03.js": {
+    "file": "chunks/vendor-5cedbe03.js"
   },
   "_preload-helper-ec9aa979.js": {
     "file": "chunks/preload-helper-ec9aa979.js"
   },
-  "_card-bc1076b0.js": {
-    "file": "chunks/card-bc1076b0.js",
+  "_card-07d83c98.js": {
+    "file": "chunks/card-07d83c98.js",
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   },
-  "_social_media_badges-9f957b26.js": {
-    "file": "chunks/social_media_badges-9f957b26.js",
+  "_social_media_badges-1038fa70.js": {
+    "file": "chunks/social_media_badges-1038fa70.js",
     "imports": [
-      "_vendor-d2f2f4a8.js"
+      "_vendor-5cedbe03.js"
     ]
   }
 }
