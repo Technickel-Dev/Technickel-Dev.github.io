@@ -3,15 +3,15 @@
   import BackButton from "../_back_button.svelte";
 </script>
 
-<div class="flex-1 flex flex-col justify-center">
+<div class="flex flex-col justify-center">
   <div class="flex justify-center mb-4">
     <BackButton />
   </div>
-  <div class="max-w-4xl m-auto">
-    <Card>
+  <Card classes="px-4 md:px-16 py-8">
+    <article class="prose prose-invert">
       <slot />
-    </Card>
-  </div>
+    </article>
+  </Card>
   <div class="flex justify-center mt-4">
     <BackButton />
   </div>

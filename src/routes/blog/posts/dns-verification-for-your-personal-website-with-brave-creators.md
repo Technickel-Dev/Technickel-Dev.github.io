@@ -14,26 +14,26 @@ tags:
 # {title}
 
 {date} - {author}
-<br>
 
 ## Brave Creators domain verification
 
-On the road to creating awesome content you may want to find ways to monetize your creations. With [Brave Creators](https://creators.brave.com/), you can unlock a new channel of revenue through collecting BAT tips that your audience can give you using the [Brave Browser](https://brave.com/). Using this tutorial, you will be able to verify your domain with Brave Creators so you can start collecting those tips and earning money for those fantastic works of passion.<br><br>
+On the road to creating awesome content you may want to find ways to monetize your creations. With [Brave Creators](https://creators.brave.com/), you can unlock a new channel of revenue through collecting BAT tips that your audience can give you using the [Brave Browser](https://brave.com/). Using this tutorial, you will be able to verify your domain with Brave Creators so you can start collecting those tips and earning money for those fantastic works of passion.
+
 ## How to verify a channel for Brave Creators
 
-There are two methods of verification for a website channel (and a third one if you run a Wordpress website). The first method is called _File Upload Verification_ and involves uploading a file to the website in a specific spot. We aren't going to be going over that method today and are instead going to do the second method, _DNS Verification_.<br><br>
+There are two methods of verification for a website channel (and a third one if you run a Wordpress website). The first method is called _File Upload Verification_ and involves uploading a file to the website in a specific spot. We aren't going to be going over that method today and are instead going to do the second method, _DNS Verification_.
 
 ## What is DNS verification?
 
-DNS Verification is the act of adding an entry to your domain that proves that you own it to the service that you need to verify for. Think of it this way, you might ask a construction company to do work on your house. They come back to you and say, before they can do work on your house, you need to prove you own it by putting a sticker in the window so when the construction crew comes by to work, they know that you both own the house and that's the house they should be working on. This way your neighbour can't trick construction company to do the work on their house rather than yours.<br><br>
+DNS Verification is the act of adding an entry to your domain that proves that you own it to the service that you need to verify for. Think of it this way, you might ask a construction company to do work on your house. They come back to you and say, before they can do work on your house, you need to prove you own it by putting a sticker in the window so when the construction crew comes by to work, they know that you both own the house and that's the house they should be working on. This way your neighbour can't trick construction company to do the work on their house rather than yours.
 
 ## How to do a DNS verification
 
-The process of DNS Verification for Brave Creators can be broken down into 3 easy steps...<br><br>
+The process of DNS Verification for Brave Creators can be broken down into 3 easy steps...
 
 ### 1. Getting the DNS verification record from Brave
 
-Log in or sign up to [Brave Creators](https://creators.brave.com/) if you haven't already. On the homepage, you should be able to click the _"Add a Channel"_ button.<br><br>
+Log in or sign up to [Brave Creators](https://creators.brave.com/) if you haven't already. On the homepage, you should be able to click the _"Add a Channel"_ button.
 
 ![Add Brave Creators Channel](/blog/create_channel.png "Add Brave Creators Channel")
 
@@ -41,9 +41,9 @@ Log in or sign up to [Brave Creators](https://creators.brave.com/) if you haven'
 
 _Add a Channel_
 
-</div><br>
+</div>
 
-Choose website as the channel and enter in your apex domain. An apex domain is the top level domain (ex. apex: `google.com` vs sub: `www.google.com` or apex: `technickel.dev` vs sub: `blogs.technickel.dev`). Finally, decide if you will allow Brave to serve ads on your site.<br><br>
+Choose website as the channel and enter in your apex domain. An apex domain is the top level domain (ex. apex: `google.com` vs sub: `www.google.com` or apex: `technickel.dev` vs sub: `blogs.technickel.dev`). Finally, decide if you will allow Brave to serve ads on your site.
 
 ![Enter Apex Domain](/blog/choose_domain.png "Enter Apex Domain")
 
@@ -51,9 +51,9 @@ Choose website as the channel and enter in your apex domain. An apex domain is t
 
 _Enter Your Apex Domain_
 
-</div><br>
+</div>
 
-Next you'll be given the choice to do the File Upload Verification or the DNS Verification, so we choose the DNS Verification.<br><br>
+Next you'll be given the choice to do the File Upload Verification or the DNS Verification, so we choose the DNS Verification.
 
 ![Choose DNS Verification](/blog/edit_dns.png "Choose DNS Verification")
 
@@ -61,9 +61,9 @@ Next you'll be given the choice to do the File Upload Verification or the DNS Ve
 
 _Choose DNS Verification_
 
-</div><br>
+</div>
 
-We are finally at the end of this step, all thats left to do is copy the string in the _TXT Value_ box.<br><br>
+We are finally at the end of this step, all thats left to do is copy the string in the _TXT Value_ box.
 
 ![Copy TXT Value](/blog/txt_value.png "Copy TXT Value")
 
@@ -71,11 +71,11 @@ We are finally at the end of this step, all thats left to do is copy the string 
 
 _Copy TXT Value_
 
-</div><br>
+</div>
 
 ### 2. Create the DNS record in your domain registrar
 
-Log into your domain registrar, ie. the place where you bought your domain. My domain currently exists on Google Domains so that is what I'll be using for this tutorial, though the process shouldn't be much different for other domain registrars. First navigate to the domain and then the DNS area for that specific domain.<br><br>
+Log into your domain registrar, ie. the place where you bought your domain. My domain currently exists on Google Domains so that is what I'll be using for this tutorial, though the process shouldn't be much different for other domain registrars. First navigate to the domain and then the DNS area for that specific domain.
 
 ![Navigate to DNS Area](/blog/dns_page.png "Navigate to DNS Area")
 
@@ -83,9 +83,9 @@ Log into your domain registrar, ie. the place where you bought your domain. My d
 
 _Navigate to DNS Area_
 
-</div><br>
+</div>
 
-It should bring you to a page that may or may not have content already on it depending on how you've used your domain. We need to add a new custom record for the TXT record that we copied from Brave Creators.<br><br>
+It should bring you to a page that may or may not have content already on it depending on how you've used your domain. We need to add a new custom record for the TXT record that we copied from Brave Creators.
 
 ![Manage Custom Records](/blog/manage_custom_records.png "Manage Custom Records")
 
@@ -93,7 +93,7 @@ It should bring you to a page that may or may not have content already on it dep
 
 _Manage Custom Records_
 
-</div><br>
+</div>
 
 Before we actually add the record, let's break down what the individual fields stand for:
 
@@ -101,9 +101,8 @@ Before we actually add the record, let's break down what the individual fields s
 - _Type_ - this is the type of the record. In DNS land, each type of record specifies doing something different. Our record is going to be a TXT record, which is just a record that contains text for sources outside of your domain. (Ie. Brave Creators)
 - _TTL_ - how long before the copy of the record hosted on the server is updated or deleted. This is not overly important for our purposes, so we will leave it at 1 hour.
 - _Data_ - this is the actual value that we want for the record. In our case, we want the value that we copied from step 1.
-  <br><br>
 
-Now that we understand what each piece of the puzzle does, all that's left to do for this step is to make the record. Fill in the information as explained above and click save.<br><br>
+Now that we understand what each piece of the puzzle does, all that's left to do for this step is to make the record. Fill in the information as explained above and click save.
 
 ![Create the DNS TXT Record](/blog/dns_txt_record.png "Create the DNS TXT Record")
 
@@ -111,11 +110,11 @@ Now that we understand what each piece of the puzzle does, all that's left to do
 
 _Create the DNS TXT Record_
 
-</div><br>
+</div>
 
 ### 3. Wait and verify!
 
-The hard part is now done! Since DNS takes a bit to update, it make take up to 24 hours for the changes to take effect. To see if it worked, periodically try to verify the domain on the Brave Creators side by clicking the "Verify DNS Record" button. If everything was done right, after the DNS propagates (again which may take up to 24h) then Brave Creators should recognize your domain as verified.<br><br>
+The hard part is now done! Since DNS takes a bit to update, it make take up to 24 hours for the changes to take effect. To see if it worked, periodically try to verify the domain on the Brave Creators side by clicking the "Verify DNS Record" button. If everything was done right, after the DNS propagates (again which may take up to 24h) then Brave Creators should recognize your domain as verified.
 
 ![Verify DNS Record](/blog/verify.png "Verify DNS Record")
 
@@ -123,9 +122,9 @@ The hard part is now done! Since DNS takes a bit to update, it make take up to 2
 
 _Verify DNS Record_
 
-</div><br>
+</div>
 
-After your domain is verified you should be able to navigate to your website using the Brave Browser and by clicking on Brave Rewards see that you can tip on your website and that it is a verified creator. This may take some time to update on Brave's side, but should show up eventually. This can be seen in the image below for my personal website!<br><br>
+After your domain is verified you should be able to navigate to your website using the Brave Browser and by clicking on Brave Rewards see that you can tip on your website and that it is a verified creator. This may take some time to update on Brave's side, but should show up eventually. This can be seen in the image below for my personal website!
 
 ![Confirm Verification](/blog/verified.png "Confirm Verification")
 
@@ -133,7 +132,7 @@ After your domain is verified you should be able to navigate to your website usi
 
 _Confirm Verification_
 
-</div><br>
+</div>
 
 ## Recap
 

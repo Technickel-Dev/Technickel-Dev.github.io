@@ -15,17 +15,12 @@
   h2 {
     @apply text-2xl font-medium mb-1;
   }
-  h3 {
-    @apply text-lg font-normal mb-1;
-  }
-  ul {
-    @apply list-disc ml-4;
-  }
   img {
     @apply m-auto;
   }
-  a {
-    @apply text-sky-600 hover:text-sky-700;
+  /* Make code block responsive for mobile */
+  code[class*="language-"] {
+    white-space: pre-line;
   }
 }
 
