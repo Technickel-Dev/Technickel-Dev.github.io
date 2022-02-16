@@ -1,5 +1,6 @@
 # Technickel.dev
 [![Powered By Sveltekit](https://img.shields.io/badge/powered%20by-svelte-FF3C02.svg?style=flat&logo=svelte)](https://kit.svelte.dev/)
+[![Tailwindcss](https://img.shields.io/badge/Tailwindcss-CSS--Framework-%2338B2AC?logo=tailwindcss)](https://tailwindcss.com)
 
 ## 📋 Table of Contents
 1. [Usage](#Usage)
