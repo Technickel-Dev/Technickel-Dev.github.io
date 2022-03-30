@@ -42,7 +42,7 @@
   <title>Blog - Technickel</title>
 </svelte:head>
 
-<div class="flex flex-col">
+<div class="flex flex-col flex-grow">
   <h1>Blogs</h1>
   <div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 mb-4">
     <input
