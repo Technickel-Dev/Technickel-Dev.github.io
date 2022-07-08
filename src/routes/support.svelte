@@ -1,6 +1,7 @@
 <script>
   import Card from "$lib/card.svelte";
   import MutedText from "$lib/muted_text.svelte";
+import ShieldBadge from "$lib/shield_badge.svelte";
   import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
   import SocialMediaBadges from "$lib/social_media_badges.svelte";
 </script>
@@ -22,7 +23,13 @@
       <h2>Donate</h2>
       <MutedText text="Funding my work helps me afford wacky projects!" />
       <hr />
-      <div class="grid flex-cols-1 gap-4 place-items-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
+        <ShieldBadgeButton
+          url="https://www.amazon.ca/hz/wishlist/ls/S8S8DRPTR7C3?ref_=wl_share"
+          badge="Amazon_Wishlist-ff9900"
+          logo="Amazon"
+          alt="Amazon Badge"
+        />
         <ShieldBadgeButton
           url="https://www.buymeacoffee.com/pIvCSjDLo"
           badge="Buy_Me_A_Coffee-FFDD00"
