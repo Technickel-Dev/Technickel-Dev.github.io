@@ -62,7 +62,7 @@
           Coinbase is a cryptocurrency exchange platform. Sign up using my
           <a href="https://www.coinbase.com/join/leonar_9yb" class="text-sky-600 hover:text-sky-700">Coinbase referral link</a> and we will both
           get some bonus cyrpto after you buy or sell more than the threshold amount. Keep in mind buying
-          and selling crypto is unpredicatble and may result in loss of money. Use at your own risk!
+          and selling crypto is unpredicatble and may result in loss of your investment. Use at your own risk!
         </p>
       </Card>
     </div>
