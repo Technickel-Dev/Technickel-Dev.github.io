@@ -27,7 +27,7 @@
           url="https://www.amazon.ca/hz/wishlist/ls/S8S8DRPTR7C3?ref_=wl_share"
           badge="Amazon_Wishlist-ff9900"
           logo="Amazon"
-          alt="Amazon Badge"
+          alt="Amazon Wishlist Badge"
         />
         <ShieldBadgeButton
           url="https://www.buymeacoffee.com/pIvCSjDLo"
