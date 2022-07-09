@@ -22,7 +22,13 @@
       <h2>Donate</h2>
       <MutedText text="Funding my work helps me afford wacky projects!" />
       <hr />
-      <div class="grid flex-cols-1 gap-4 place-items-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
+        <ShieldBadgeButton
+          url="https://www.amazon.ca/hz/wishlist/ls/S8S8DRPTR7C3?ref_=wl_share"
+          badge="Amazon_Wishlist-ff9900"
+          logo="Amazon"
+          alt="Amazon Wishlist Badge"
+        />
         <ShieldBadgeButton
           url="https://www.buymeacoffee.com/pIvCSjDLo"
           badge="Buy_Me_A_Coffee-FFDD00"
@@ -56,7 +62,7 @@
           Coinbase is a cryptocurrency exchange platform. Sign up using my
           <a href="https://www.coinbase.com/join/leonar_9yb" class="text-sky-600 hover:text-sky-700">Coinbase referral link</a> and we will both
           get some bonus cyrpto after you buy or sell more than the threshold amount. Keep in mind buying
-          and selling crypto is unpredicatble and may result in loss of money. Use at your own risk!
+          and selling crypto is unpredicatble and may result in loss of your investment. Use at your own risk!
         </p>
       </Card>
     </div>
