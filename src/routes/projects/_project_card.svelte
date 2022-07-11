@@ -5,6 +5,7 @@
   export let imageSrc = undefined;
   export let alt = "Card image";
   export let url = undefined;
+  export let index = undefined;
 
   let check_out_options = ["Check out", "Take a look at", "See", "Take a peek at", "Explore", "Learn more about"]
 </script>
@@ -21,6 +22,6 @@
     </p>
   </div>
   {#if url}
-    <a class="btn" href={url}>{check_out_options[Math.floor(Math.random() * check_out_options.length)]} {title} here!</a>
+    <a class="btn" href={url}>{check_out_options[index % check_out_options.length]} {title} here!</a>
   {/if}
 </div>
