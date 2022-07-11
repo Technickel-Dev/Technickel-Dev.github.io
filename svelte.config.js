@@ -6,8 +6,10 @@ const config = {
   extensions: [".svelte"],
 
   kit: {
-    adapter: adapter()
-  }
+    adapter: adapter(),
+  },
+
+  preprocess: [preprocess({})]
 };
 
 export default config;
