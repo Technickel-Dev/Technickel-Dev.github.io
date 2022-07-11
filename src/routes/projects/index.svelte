@@ -26,7 +26,7 @@
     {
       name: "Augmented Municipality",
       type: "Mobile",
-      description: "An AR app designed to communicate urban design to over 240,000 citizens."
+      description: "An AR app designed to communicate urban design to over 240,000 citizens by letting them see what current and future municipal developments look like in real life."
     },
     {
       name: "Low Poly",
@@ -38,7 +38,7 @@
     {
       name: "Plannit",
       type: "Mobile",
-      description: "Android app that helps plan schedules and find free time."
+      description: "A space themed Android app that helps you and your friends plan schedules and find free time."
     },
     {
       name: "NPC Bot",
@@ -91,9 +91,9 @@
   <div
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr grid-flow-row-dense"
   >
-    {#each projects as { name, type, description, imageSrc, url }}
+    {#each projects as { name, type, description, imageSrc, url }, index}
       <Card>
-        <ProjectCard {imageSrc} title={name} subTitle={type} text={description} {url} />
+        <ProjectCard {imageSrc} title={name} subTitle={type} text={description} {url} {index} />
       </Card>
     {/each}
   </div>
