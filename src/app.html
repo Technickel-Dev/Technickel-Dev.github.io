@@ -3,16 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="description" content="My personal website! Using SvelteKit, it's a place for me to showcase my projects and display my brand. My five cents on tech!" />
-    <link rel="icon" type="image/svg+xml" href="%svelte.assets%/coin.svg" />
-    <link rel="alternate icon" href="%svelte.assets%/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/coin.svg" />
+    <link rel="alternate icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Markdown code highlighting -->
-    <link href="/prism.css" rel="stylesheet" />
-
-    %svelte.head%
+    %sveltekit.head%
   </head>
   <body>
-    <div id="svelte" class="flex flex-1">%svelte.body%</div>
+    <div id="svelte" class="flex flex-1">%sveltekit.body%</div>
   </body>
 </html>
