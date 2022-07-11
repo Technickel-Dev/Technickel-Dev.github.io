@@ -33,7 +33,7 @@
   </div>
   <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
     <div class="text-sm sm:flex-grow">
-      <NavLink url="/blog" title="Blog" {isOpen} on:nav={closeMenu} />
+      <NavLink url="https://technickel.dev/blog" title="Blog" {isOpen} on:nav={closeMenu} />
       <NavLink url="/projects" title="Projects" {isOpen} on:nav={closeMenu} />
       <NavLink url="/contact" title="Contact" {isOpen} on:nav={closeMenu} />
       <NavLink url="/support" title="Support" {isOpen} on:nav={closeMenu} />
