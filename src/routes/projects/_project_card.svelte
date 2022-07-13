@@ -16,7 +16,7 @@
 <div class:mt-4={imageSrc} class="h-full flex flex-col justify-between">
   <div class="flex flex-col justify-center">
     <div class="font-bold text-xl mb-1">{title}</div>
-    <div class="mb-2 text-xs text-neutral-300">{subTitle}</div>
+    <div class="mb-2 text-sm text-neutral-300">{subTitle}</div>
     <p class="text-base text-center" class:mb-4={url}>
       {text}
     </p>
