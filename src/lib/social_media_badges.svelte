@@ -21,10 +21,4 @@
     logo="reddit"
     alt="Reddit Badge for Technickel"
   />
-  <ShieldBadgeButton
-    url="https://www.linkedin.com/in/bleona/"
-    badge="-Bradley-blue"
-    logo="Linkedin"
-    alt="Linkedin Badge for Bradley"
-  />
 </div>
