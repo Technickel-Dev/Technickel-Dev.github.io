@@ -21,4 +21,10 @@
     logo="reddit"
     alt="Reddit Badge for Technickel"
   />
+  <ShieldBadgeButton
+    url="https://www.twitch.tv/technickel/"
+    badge="Technickel-6441A5"
+    logo="twitch"
+    alt="Twitch Badge for Technickel"
+  />
 </div>
