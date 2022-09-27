@@ -1,6 +1,6 @@
 <script>
   import Card from "$lib/card.svelte";
-  import ProjectCard from "./_project_card.svelte";
+  import ProjectCard from "./project_card.svelte";
 
   let projects = [
     {
