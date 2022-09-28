@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta http-equiv="content-security-policy" content=""><title>Home - Technickel</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/pages/__layout.svelte-d9b6bd0d.css">
-	<link rel="modulepreload" href="/_app/immutable/start-238cb755.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-217133be.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-20fa454e.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/index.svelte-084e12e9.js">
+		<link href="./_app/immutable/assets/_layout-cfd3181a.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/start-8be2b6a1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-31b4ab7d.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-cd00a4ba.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-b1e092d7.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-7b9cbfbc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-8d2a742b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-0fd22da0.js">
   </head>
   <body>
     <div id="svelte" class="flex flex-1">
@@ -35,22 +38,24 @@
 
 
 		<script type="module" data-sveltekit-hydrate="2rcnln">
-		import { start } from "/_app/immutable/start-238cb755.js";
-		start({
-			target: document.querySelector('[data-sveltekit-hydrate="2rcnln"]').parentNode,
-			paths: {"base":"","assets":""},
-			session: {},
-			route: true,
-			spa: false,
-			trailing_slash: "never",
-			hydrate: {
-				status: 200,
-				error: null,
-				nodes: [0, 3],
-				params: {},
-				routeId: ""
-			}
-		});
-	</script></div>
+			import { start } from "./_app/immutable/start-8be2b6a1.js";
+
+			start({
+				env: {},
+				hydrate: {
+					status: 200,
+					error: null,
+					node_ids: [0, 2],
+					params: {},
+					routeId: "",
+					data: (function(a){return [a,a]}(null)),
+					form: null
+				},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="2rcnln"]').parentNode,
+				trailing_slash: "never"
+			});
+		</script>
+	</div>
   </body>
 </html>
