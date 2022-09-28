@@ -1,8 +1,6 @@
 <script>
   import Nav from "$lib/nav.svelte";
   import "../app.css";
-
-  export const prerender = true;
 </script>
 
 <div class="flex-1 flex flex-col">
