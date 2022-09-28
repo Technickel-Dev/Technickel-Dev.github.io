@@ -42,6 +42,18 @@
           logo="Brave"
           alt="Brave Badge"
         />
+        <ShieldBadgeButton
+          url="https://github.com/sponsors/Technickel-Dev"
+          badge="Github Sponsors-333"
+          logo="github"
+          alt="Github Sponsors Badge"
+        />
+        <ShieldBadgeButton
+          url="https://streamelements.com/technickel/tip"
+          badge="Twitch Tips-9146FF"
+          logo="twitch"
+          alt="Twitch Tips Badge"
+        />
       </div>
     </Card>
     <div class="md:col-span-2">
@@ -60,9 +72,11 @@
         </p>
         <p>
           Coinbase is a cryptocurrency exchange platform. Sign up using my
-          <a href="https://www.coinbase.com/join/leonar_9yb" class="text-sky-600 hover:text-sky-700">Coinbase referral link</a> and we will both
-          get some bonus cyrpto after you buy or sell more than the threshold amount. Keep in mind buying
-          and selling crypto is unpredicatble and may result in loss of your investment. Use at your own risk!
+          <a href="https://www.coinbase.com/join/leonar_9yb" class="text-sky-600 hover:text-sky-700"
+            >Coinbase referral link</a
+          > and we will both get some bonus cyrpto after you buy or sell more than the threshold amount.
+          Keep in mind buying and selling crypto is unpredicatble and may result in loss of your investment.
+          Use at your own risk!
         </p>
       </Card>
     </div>

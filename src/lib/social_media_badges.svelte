@@ -23,7 +23,7 @@
   />
   <ShieldBadgeButton
     url="https://www.twitch.tv/technickel/"
-    badge="Technickel-6441A5"
+    badge="Technickel-9146FF"
     logo="twitch"
     alt="Twitch Badge for Technickel"
   />
