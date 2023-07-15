@@ -1,6 +1,6 @@
 <script>
   import Nav from "$lib/nav.svelte";
-  import "../app.css";
+  import "../../app.css";
 </script>
 
 <div class="flex-1 flex flex-col">

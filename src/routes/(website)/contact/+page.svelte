@@ -2,7 +2,7 @@
   import Card from "$lib/card.svelte";
   import MutedText from "$lib/muted_text.svelte";
   import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
-  import SocialMediaBadges from "../../lib/social_media_badges.svelte";
+  import SocialMediaBadges from "../../../lib/social_media_badges.svelte";
 </script>
 
 <svelte:head>
