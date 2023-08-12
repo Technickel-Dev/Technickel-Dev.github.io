@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import CircularProgress from "./circularProgress.svelte";
   import "@fontsource/inknut-antiqua";
   import { fade } from "svelte/transition";
   import { cards } from "./tarot_cards.json";
+  import { onMount } from "svelte";
 
   // Card Flip Credits: Coding With Russ https://www.youtube.com/watch?v=NCLdf661ILE
 
@@ -13,7 +13,8 @@
   const ANIMATION_DELAY = 1500;
   const TOTAL_ANIMATION_DELAY = 2 * ANIMATION_DELAY;
 
-  const username = $page.url.searchParams.get("username");
+  let username;
+  let userDelaySeconds = 0;
   let active = false;
   let reverse = false;
   let cardInitialized = false;
@@ -24,13 +25,18 @@
   let currentTime = 0;
   let endTime = 0;
   $: progressBarValue = (100 - ((endTime - currentTime) / totalDelayMilliSeconds) * 100) | 0;
-  $: totalDelayMilliSeconds = setDrawDelay();
+  $: totalDelayMilliSeconds = setDrawDelay(userDelaySeconds);
 
-  const setDrawDelay = () => {
-    let userDelaySeconds = parseInt($page.url.searchParams.get("cardDelaySeconds"));
+  onMount(async () => {
+    username = $page.url.searchParams.get("username");
+    userDelaySeconds = parseInt($page.url.searchParams.get("cardDelaySeconds"));
 
-    if (userDelaySeconds) {
-      let userDelay = userDelaySeconds * SECONDS_TO_MILLISECONDS;
+    connectToTwitchChat();
+  });
+
+  const setDrawDelay = (providedDelay) => {
+    if (providedDelay) {
+      let userDelay = providedDelay * SECONDS_TO_MILLISECONDS;
       return userDelay > TOTAL_ANIMATION_DELAY ? userDelay : DEFAULT_DELAY;
     }
 
@@ -117,7 +123,7 @@
     setTimeout(drawTarot, 100);
   };
 
-  if (browser) {
+  const connectToTwitchChat = () => {
     const client = new window.tmi.Client({
       channels: [username]
     });
@@ -139,7 +145,7 @@
         }
       }
     });
-  }
+  };
 </script>
 
 <svelte:head>
