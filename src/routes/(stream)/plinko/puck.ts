@@ -1,6 +1,6 @@
-import { Bodies, Composite, World } from "matter-js";
+import Matter from "matter-js";
 
-export const createPuck = (world: World, width: number, name: string, radius: number) => {
+export const createPuck = (world: Matter.World, width: number, name: string, radius: number) => {
   let options = {
     restitution: 0.8,
     friction: 0,
@@ -12,9 +12,9 @@ export const createPuck = (world: World, width: number, name: string, radius: nu
   let y = 10;
   let x = Math.random() * width;
 
-  let puck = Bodies.circle(x, y, radius, options);
+  let puck = Matter.Bodies.circle(x, y, radius, options);
   puck.label = "puck";
-  Composite.add(world, puck);
+  Matter.Composite.add(world, puck);
 };
 
 const getRandomColor = () => {

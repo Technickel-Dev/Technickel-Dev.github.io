@@ -1,7 +1,7 @@
-import { Bodies, Composite, type World } from "matter-js";
+import Matter from "matter-js";
 
 export const createPegs = (
-  world: World,
+  world: Matter.World,
   width: number,
   cols: number,
   rows: number,
@@ -28,7 +28,7 @@ export const createPegs = (
   return pegs;
 };
 
-const createPeg = (world: World, x: number, y: number, radius: number, color: string) => {
+const createPeg = (world: Matter.World, x: number, y: number, radius: number, color: string) => {
   let options = {
     restitution: 1,
     friction: 0,
@@ -38,8 +38,8 @@ const createPeg = (world: World, x: number, y: number, radius: number, color: st
     }
   };
 
-  let peg = Bodies.circle(x, y, radius, options);
-  Composite.add(world, peg);
+  let peg = Matter.Bodies.circle(x, y, radius, options);
+  Matter.Composite.add(world, peg);
 
   return peg;
 };

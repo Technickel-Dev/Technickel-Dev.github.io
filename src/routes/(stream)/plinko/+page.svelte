@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Engine, Events, Render, Runner, type IEventCollision, Composite } from "matter-js";
+  import Matter from "matter-js";
   import { onMount } from "svelte";
   import { createBoundary } from "./boundary";
   import { createPegs } from "./peg";
@@ -11,18 +11,17 @@
   const PEG_RADIUS = 6;
   const PEG_COLOR = "#0EA5E9";
   const PUCK_RADIUS = 24;
-  let pegs = [];
 
   let canvas: HTMLCanvasElement;
 
-  let engine = Engine.create();
+  let engine = Matter.Engine.create();
   engine.timing.timeScale = 0.5;
 
-  let runner = Runner.create();
-  let render: Render;
+  let runner = Matter.Runner.create();
+  let render: Matter.Render;
 
   onMount(() => {
-    render = Render.create({
+    render = Matter.Render.create({
       canvas: canvas,
       engine: engine,
       options: {
@@ -30,14 +29,14 @@
       }
     });
 
-    pegs = createPegs(engine.world, render.canvas.width, COLS, ROWS, PEG_RADIUS, PEG_COLOR);
+    createPegs(engine.world, render.canvas.width, COLS, ROWS, PEG_RADIUS, PEG_COLOR);
     createBoundary(engine.world, PEG_COLOR);
 
     // Run the renderer
-    Render.run(render);
+    Matter.Render.run(render);
 
     // Run the engine
-    Runner.run(runner, engine);
+    Matter.Runner.run(runner, engine);
 
     let username = $page.url.searchParams.get("username");
     connectToTwitchChat(username);
@@ -60,7 +59,7 @@
     });
   };
 
-  const handleCollision = (event: IEventCollision<Engine>) => {
+  const handleCollision = (event: Matter.IEventCollision<Matter.Engine>) => {
     let pairs = event.pairs;
 
     for (let i = 0; i < pairs.length; i++) {
@@ -77,13 +76,13 @@
 
         body.label = "donePuck";
         setTimeout(() => {
-          Composite.remove(engine.world, body);
+          Matter.Composite.remove(engine.world, body);
         }, 5000);
       }
     }
   };
 
-  Events.on(engine, "collisionStart", handleCollision);
+  Matter.Events.on(engine, "collisionStart", handleCollision);
 </script>
 
 <svelte:head>
