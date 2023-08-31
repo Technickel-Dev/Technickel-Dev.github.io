@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import CircularProgress from "./circularProgress.svelte";
+  import CircularProgress from "$lib/circularProgress.svelte";
   import "@fontsource/inknut-antiqua";
   import { fade } from "svelte/transition";
   import { cards } from "./tarot_cards.json";

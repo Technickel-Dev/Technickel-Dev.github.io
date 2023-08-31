@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // Circular Progress Credit: Stephane Vanraes https://github.com/stephane-vanraes/svelte-progresscircle
 
   export let value = 0;
@@ -25,6 +25,22 @@
       return path;
     }
   };
+
+  export const timedProgress = (ms: number) => {
+    let intervalCounter = 0;
+    const INTERVAL_AMOUNT = 100;
+
+    let interval = setInterval(() => {
+      if (intervalCounter >= ms) {
+        clearInterval(interval);
+        value = 0;
+        return;
+      }
+
+      intervalCounter += INTERVAL_AMOUNT;
+      value += (100 * INTERVAL_AMOUNT) / ms;
+    }, INTERVAL_AMOUNT);
+  };
 </script>
 
 <svg viewBox="0 0 100 100">
@@ -34,7 +50,6 @@
 
 <style>
   svg {
-    position: absolute;
     width: 100%;
     height: 100%;
     fill: var(--progress-fill, transparent);

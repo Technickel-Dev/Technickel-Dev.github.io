@@ -125,10 +125,20 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.13.tgz#031f69b1f4cf62a18c38d502458c0b8b02625461"
   integrity sha512-iVl6lehAfJS+VmpF3exKpNQ8b0eucf5VWfzR8S7xFve64NBNz2jPUgx1X93/kfnkfgP737O+i1k54SVQS7uVZA==
 
+"@fontsource/dseg14-modern@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/dseg14-modern/-/dseg14-modern-5.0.7.tgz#81b8400ff539939b2e05ee681d7342df003d0549"
+  integrity sha512-+azBodsT7w/1tzZhZsrAr8tz3jyYF+bvFhB4xb5qFJkzgR3qTkmsztQ8QDp1Hy2JbHTK3iIha0aktr+A5AD56A==
+
 "@fontsource/inknut-antiqua@^5.0.8":
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/@fontsource/inknut-antiqua/-/inknut-antiqua-5.0.8.tgz#b23f3084c313466ccccdaaffe4d92610a7235242"
   integrity sha512-Hf+wQ0gh5Myn3Rj3h9FC7YjrnBr3uctG/3b+FMX44Tv9r49AWRX7kYGztwZo0eqmZL64FIQsrGDBXX5HlPsJzA==
+
+"@fontsource/teko@^5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/teko/-/teko-5.0.9.tgz#a65ffb01ad23c8560302281556fd3c54032ad6ae"
+  integrity sha512-AbCnvsH2aI1bcqTGO399JuktTffq79ZJs3EvOf3bQ5zGtDYrpBWbNum5DArG+4mNLm+woehFuVJoLaCbCnsvYw==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"

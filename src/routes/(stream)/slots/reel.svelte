@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { randomNumber } from "$lib/utils";
 
   // Desandro https://3dtransforms.desandro.com/carousel
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
@@ -56,10 +57,6 @@
         resolve(rolledIndex);
       }, animationDuration);
     });
-  };
-
-  const randomNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   };
 </script>
 
