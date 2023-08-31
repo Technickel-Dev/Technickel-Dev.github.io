@@ -49,12 +49,8 @@
       // +-1 for avoiding edges
       let spinRandomness = randomNumber((-theta / 2) + 1, theta / 2 - 1);
 
-      console.log(spinRandomness)
-
       // Full revolutions for flair plus the degrees for actual result
       let angle = DEFAULT_NUMBER_SPINS * 360 + rolledIndex * theta + spinRandomness;
-      console.log(angle);
-      
 
       wheel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
 
