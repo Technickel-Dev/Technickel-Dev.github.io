@@ -2,10 +2,12 @@
   import { page } from "$app/stores";
   import { onMount } from "svelte";
   import Reel from "./reel.svelte";
+  import { sleep } from "$lib/utils";
 
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
 
   const DEFAULT_NAME = "hello-world";
+  const WIN_ANIMATION_TIME = 2000;
 
   let username: string;
   let reelOne: Reel;
@@ -15,6 +17,7 @@
 
   let queue = [];
   let currentName = DEFAULT_NAME;
+  let winner = false;
 
   onMount(async () => {
     username = $page.url.searchParams.get("username");
@@ -66,7 +69,15 @@
       currentName = DEFAULT_NAME;
     }
 
-    await Promise.all([reelOne.roll(), reelTwo.roll(), reelThree.roll()]);
+    let results = await Promise.all([reelOne.roll(), reelTwo.roll(), reelThree.roll()]);
+
+    // Check results
+    if (results.every((val, _, arr) => val === arr[0])) {
+      winner = true;
+
+      await sleep(WIN_ANIMATION_TIME);
+      winner = false;
+    }
 
     queue.shift();
 
@@ -84,7 +95,7 @@
   <div class="semi-circle">
     <div class="name">{currentName}</div>
   </div>
-  <div class="slots">
+  <div class:winner class="slots">
     <Reel bind:this={reelOne} />
     <Reel bind:this={reelTwo} spinOffset={1} />
     <Reel bind:this={reelThree} spinOffset={2} />
@@ -220,5 +231,20 @@
     top: 115px;
     transform-origin: bottom;
     cursor: pointer;
+  }
+
+  @keyframes win {
+    0% {
+      background: linear-gradient(45deg, orange 0%, yellow 100%);
+      box-shadow: 0 0 80px orange;
+    }
+    100% {
+      background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+      box-shadow: -2px 2px 3px rgba(black, 0.3);
+    }
+  }
+
+  .winner {
+    animation: win 200ms steps(2, end) infinite;
   }
 </style>
