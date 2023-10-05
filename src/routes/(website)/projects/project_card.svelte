@@ -7,7 +7,21 @@
   export let url = undefined;
   export let index = undefined;
 
-  let check_out_options = ["Check out", "Take a look at", "See", "Take a peek at", "Explore", "Learn more about"]
+  let check_out_options = [
+    "Check out",
+    "Take a look at",
+    "See",
+    "Take a peek at",
+    "Explore",
+    "Delve into",
+    "Learn more about",
+    "Peer into",
+    "Witness",
+    "Gaze upon",
+    "Dig into",
+    "Browse",
+    "Take a tour of"
+  ];
 </script>
 
 {#if imageSrc}
@@ -22,6 +36,9 @@
     </p>
   </div>
   {#if url}
-    <a class="btn" href={url}>{check_out_options[index % check_out_options.length]} {title} here!</a>
+    <a class="btn" href={url}>
+      {check_out_options[index % check_out_options.length]}
+      {title} here!
+    </a>
   {/if}
 </div>
