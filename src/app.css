@@ -49,3 +49,9 @@ body {
     );
   }
 }
+
+/* Fix code snippets in mobile */
+code {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
