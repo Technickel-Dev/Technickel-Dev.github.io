@@ -1,8 +1,8 @@
 <script>
   import Card from "$lib/card.svelte";
+  import FollowBadges from "$lib/follow_badges.svelte";
   import MutedText from "$lib/muted_text.svelte";
   import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
-  import SocialMediaBadges from "$lib/social_media_badges.svelte";
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
       <h2>Follow</h2>
       <MutedText text="Something as simple as a follow really helps me out!" />
       <hr />
-      <SocialMediaBadges />
+      <FollowBadges />
     </Card>
     <Card>
       <h2>Donate</h2>
