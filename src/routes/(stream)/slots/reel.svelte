@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { randomNumber } from "$lib/utils";
+  import { randomNumber, waitForAnimations } from "$lib/utils";
 
   // Desandro https://3dtransforms.desandro.com/carousel
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
@@ -38,7 +38,7 @@
     let spins = DEFAULT_NUMBER_SPINS + spinOffset;
 
     // Return promise so we can await rolling finish
-    return new Promise((resolve, _) => {
+    return new Promise(async (resolve, _) => {
       // Set transition properties ==> https://cubic-bezier.com/#.41,-0.01,.63,1.09
       reel.style.transition = `all ${animationDuration}ms cubic-bezier(.41,-0.01,.63,1.09)`;
 
@@ -46,16 +46,15 @@
       let angle = spins * 360 + rolledIndex * theta;
       reel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
 
-      // After animation
-      setTimeout(() => {
-        // Reset position, so that it doesn't get higher without limit
-        reel.style.transition = `none`;
-        angle = angle % 360;
-        reel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
+      await waitForAnimations();
 
-        // Resolve this promise
-        resolve(rolledIndex);
-      }, animationDuration);
+      // Reset position, so that it doesn't get higher without limit
+      reel.style.transition = `none`;
+      angle = angle % 360;
+      reel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
+
+      // Resolve this promise
+      resolve(rolledIndex);
     });
   };
 </script>

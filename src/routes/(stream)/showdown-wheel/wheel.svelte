@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "@fontsource/teko";
-  import { randomNumber } from "$lib/utils";
+  import { randomNumber, waitForAnimations } from "$lib/utils";
 
   // Credits:
   // Desandro https://3dtransforms.desandro.com/carousel
@@ -40,30 +40,29 @@
     let rolledIndex = randomNumber(0, cells.length - 1);
 
     // Return promise so we can await rolling finish
-    return new Promise((resolve, _) => {
+    return new Promise(async (resolve, _) => {
       // Set transition properties ==> https://cubic-bezier.com/#.34,-0.21,.51,1.02
       wheel.style.transition = `all ${ANIMATION_DURATION}ms cubic-bezier(.34,-0.21,.51,1.02)`;
 
       // Don't make it land in center, make it land somewhere in between
       // Since it lands in middle we take half of theta and either subtract or add it
       // +-1 for avoiding edges
-      let spinRandomness = randomNumber((-theta / 2) + 1, theta / 2 - 1);
+      let spinRandomness = randomNumber(-theta / 2 + 1, theta / 2 - 1);
 
       // Full revolutions for flair plus the degrees for actual result
       let angle = DEFAULT_NUMBER_SPINS * 360 + rolledIndex * theta + spinRandomness;
 
       wheel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
 
-      // After animation
-      setTimeout(() => {
-        // Reset position, so that it doesn't get higher without limit
-        wheel.style.transition = `none`;
-        angle = angle % 360;
-        wheel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
+      await waitForAnimations();
 
-        // Resolve this promise
-        resolve(rolledIndex);
-      }, ANIMATION_DURATION);
+      // Reset position, so that it doesn't get higher without limit
+      wheel.style.transition = `none`;
+      angle = angle % 360;
+      wheel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
+
+      // Resolve this promise
+      resolve(rolledIndex);
     });
   };
 </script>
