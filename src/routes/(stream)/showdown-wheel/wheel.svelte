@@ -54,7 +54,7 @@
 
       wheel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
 
-      await waitForAnimations();
+      await waitForAnimations(wheel);
 
       // Reset position, so that it doesn't get higher without limit
       wheel.style.transition = `none`;

@@ -46,7 +46,7 @@
       let angle = spins * 360 + rolledIndex * theta;
       reel.style.transform = `translateZ(${-radius}px) rotateX(${-angle}deg)`;
 
-      await waitForAnimations();
+      await waitForAnimations(reel);
 
       // Reset position, so that it doesn't get higher without limit
       reel.style.transition = `none`;
