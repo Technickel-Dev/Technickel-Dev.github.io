@@ -5,23 +5,31 @@
   import { fade } from "svelte/transition";
   import { cards } from "./tarot_cards.json";
   import { onMount } from "svelte";
+  import type { Client } from "tmi.js";
 
   // Card Flip Credits: Coding With Russ https://www.youtube.com/watch?v=NCLdf661ILE
+
+  type Card = {
+    name: string;
+    image: string;
+    description: string;
+    reverseDescription: string;
+  };
 
   const SECONDS_TO_MILLISECONDS = 1000;
   const DEFAULT_DELAY = 20000;
   const ANIMATION_DELAY = 1500;
   const TOTAL_ANIMATION_DELAY = 2 * ANIMATION_DELAY;
 
-  let username;
+  let username: string | null;
   let userDelaySeconds = 0;
   let active = false;
   let reverse = false;
   let cardInitialized = false;
   let timeInitialized = false;
-  let queue = [];
+  let queue: string[] = [];
   let currentName = "hello-world";
-  let currentCard = cards[0];
+  let currentCard: Card = cards[0];
   let currentTime = 0;
   let endTime = 0;
   $: progressBarValue = (100 - ((endTime - currentTime) / totalDelayMilliSeconds) * 100) | 0;
@@ -29,12 +37,16 @@
 
   onMount(async () => {
     username = $page.url.searchParams.get("username");
-    userDelaySeconds = parseInt($page.url.searchParams.get("cardDelaySeconds"));
+    let delay = $page.url.searchParams.get("cardDelaySeconds");
+
+    if (delay != null) {
+      userDelaySeconds = parseInt(delay);
+    }
 
     connectToTwitchChat();
   });
 
-  const setDrawDelay = (providedDelay) => {
+  const setDrawDelay = (providedDelay: number) => {
     if (providedDelay) {
       let userDelay = providedDelay * SECONDS_TO_MILLISECONDS;
       return userDelay > TOTAL_ANIMATION_DELAY ? userDelay : DEFAULT_DELAY;
@@ -51,7 +63,7 @@
     active = false;
   };
 
-  const getCard = (cards) => {
+  const getCard = (cards: Card[]) => {
     const randIndex = Math.floor(Math.random() * cards.length);
     return cards[randIndex];
   };
@@ -124,7 +136,7 @@
   };
 
   const connectToTwitchChat = () => {
-    const client = new window.tmi.Client({
+    const client: Client = new window.tmi.Client({
       channels: [username]
     });
 
@@ -132,6 +144,10 @@
 
     client.on("message", (_channel, tags, message, _self) => {
       let name = tags["display-name"];
+      if (name === undefined) {
+        return;
+      }
+
       console.log(`${name}: ${message}`);
 
       if (message == "!tarot") {
@@ -169,7 +185,7 @@
     <div class="name" transition:fade>{currentName}</div>
     <div class="card-name" class:reverse transition:fade>{currentCard.name}</div>
     <div class="card-description" transition:fade>
-      {reverse ? currentCard.reverse_description : currentCard.description}
+      {reverse ? currentCard.reverseDescription : currentCard.description}
     </div>
   {/if}
 </div>

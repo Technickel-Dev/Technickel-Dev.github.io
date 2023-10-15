@@ -5,6 +5,7 @@
   import { createPegs } from "./peg";
   import { createPuck } from "./puck";
   import { page } from "$app/stores";
+  import type { Client } from "tmi.js";
 
   const ROWS = 5;
   const COLS = 11;
@@ -42,8 +43,8 @@
     connectToTwitchChat(username);
   });
 
-  const connectToTwitchChat = (username: string) => {
-    const client = new window.tmi.Client({
+  const connectToTwitchChat = (username: string | null) => {
+    const client: Client = new window.tmi.Client({
       channels: [username]
     });
 
@@ -51,6 +52,10 @@
 
     client.on("message", (_channel, tags, message, _self) => {
       let name = tags["display-name"];
+      if (name === undefined) {
+        return;
+      }
+
       console.log(`${name}: ${message}`);
 
       if (message == "!plinko") {

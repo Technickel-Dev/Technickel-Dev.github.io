@@ -277,6 +277,11 @@
   resolved "https://registry.yarnpkg.com/@types/matter-js/-/matter-js-0.19.0.tgz#5fe5f89f794c0734e69ceae6c06d697049d703d1"
   integrity sha512-SqgYUc8j68n/R2p8rVgpxTVC6gwCby+93dd5eWqjQdpL3l3JUqxzhbEJH/X0NXv+pmoAeWheH1kPvFIgC904Bw==
 
+"@types/tmi.js@^1.8.4":
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/@types/tmi.js/-/tmi.js-1.8.4.tgz#42119b8e62797ea9b66758588f46b88b243af30f"
+  integrity sha512-t2LRjlfee4dn3MgfYSzUS2cbqnU9vYujIJ8Axrm9R3KIgBBCojKTACbL9Bfo1hbqD+mhArCntDrBEwC2VrW8ng==
+
 "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.8.tgz#bb197b9639aa1a04cf464a617fe800cccd92ad5c"

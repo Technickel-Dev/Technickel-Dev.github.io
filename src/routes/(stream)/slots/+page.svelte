@@ -3,19 +3,20 @@
   import { onMount } from "svelte";
   import Reel from "./reel.svelte";
   import { sleep } from "$lib/utils";
+  import type { ChatUserstate, Client } from "tmi.js";
 
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
 
   const DEFAULT_NAME = "hello-world";
   const WIN_ANIMATION_TIME = 2000;
 
-  let username: string;
+  let username: string | null;
   let reelOne: Reel;
   let reelTwo: Reel;
   let reelThree: Reel;
   let lever: HTMLDivElement;
 
-  let queue = [];
+  let queue: string[] = [];
   let currentName = DEFAULT_NAME;
   let winner = false;
 
@@ -26,14 +27,18 @@
   });
 
   const connectToTwitchChat = () => {
-    const client = new window.tmi.Client({
+    const client: Client = new window.tmi.Client({
       channels: [username]
     });
 
     client.connect();
 
-    client.on("message", (_channel, tags, message, _self) => {
+    client.on("message", (_channel, tags: ChatUserstate, message, _self) => {
       let name = tags["display-name"];
+      if (name === undefined) {
+        return;
+      }
+
       console.log(`${name}: ${message}`);
 
       if (message == "!slots") {

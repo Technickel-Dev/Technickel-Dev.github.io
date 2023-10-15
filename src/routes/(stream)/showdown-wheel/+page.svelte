@@ -5,11 +5,12 @@
   import "@fontsource/dseg14-modern";
   import { sleep } from "$lib/utils";
   import CircularProgress from "$lib/circularProgress.svelte";
+  import type { Client } from "tmi.js";
 
   const DEFAULT_NAME = "None";
   const NUMBERS = [100, 5, 90, 25, 70, 45, 10, 65, 30, 85, 50, 95, 55, 75, 40, 20, 60, 35, 80, 15];
 
-  let username: string;
+  let username: string | null;
   let wheel: Wheel;
   let progressBar: CircularProgress;
 
@@ -29,7 +30,7 @@
   });
 
   const connectToTwitchChat = () => {
-    const client = new window.tmi.Client({
+    const client: Client = new window.tmi.Client({
       channels: [username]
     });
 
@@ -37,6 +38,10 @@
 
     client.on("message", (_channel, tags, message, _self) => {
       let name = tags["display-name"];
+      if (name === undefined) {
+        return;
+      }
+
       console.log(`${name}: ${message}`);
 
       if (message == "!wheel") {

@@ -2,11 +2,12 @@
   import { page } from "$app/stores";
   import { onMount } from "svelte";
   import EightBall from "./eight-ball.svelte";
+  import type { Client } from "tmi.js";
 
   const DEFAULT_NAME = "None";
   const DEFAULT_MESSAGE = "None";
   const TRIGGER_STRING = "!8ball ";
-  let username: string;
+  let username: string | null;
   let queue: Request[] = [];
 
   let eightBall: EightBall;
@@ -25,7 +26,7 @@
   });
 
   const connectToTwitchChat = () => {
-    const client = new window.tmi.Client({
+    const client: Client = new window.tmi.Client({
       channels: [username]
     });
 
@@ -33,6 +34,10 @@
 
     client.on("message", (_channel, tags, message, _self) => {
       let name = tags["display-name"];
+      if (name === undefined) {
+        return;
+      }
+
       console.log(`${name}: ${message}`);
 
       if (message.includes(TRIGGER_STRING)) {
