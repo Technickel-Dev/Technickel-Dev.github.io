@@ -3,23 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="description" content="My personal website! Using SvelteKit, it's a place for me to showcase my projects and display my brand. My five cents on tech!" />
-    <link rel="icon" type="image/svg+xml" href="../coin.svg" />
-    <link rel="alternate icon" href="../favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="../../coin.svg" />
+    <link rel="alternate icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     
-		<link href="../_app/immutable/assets/app.9453fc34.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.5d0d665a.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.e43ee5f3.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.6bc20740.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.fa7c19e5.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.9c613d38.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.2459f4db.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/8.6a8cd45a.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/17.7bf081b1.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/card.10cad194.js"><title>Web Components 101</title><!-- HEAD_svelte-1hjcmj9_START --><meta property="og:type" content="article"><meta property="og:title" content="Web Components 101"><!-- HEAD_svelte-1hjcmj9_END -->
+		<link href="../../_app/immutable/assets/app.9453fc34.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.9c74f59e.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/scheduler.e43ee5f3.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/singletons.6537b4ea.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.43460515.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.9c613d38.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.2459f4db.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/8.36f1faf7.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/17.7bf081b1.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/card.10cad194.js"><title>Web Components 101</title><!-- HEAD_svelte-1hjcmj9_START --><meta property="og:type" content="article"><meta property="og:title" content="Web Components 101"><!-- HEAD_svelte-1hjcmj9_END -->
   </head>
   <body>
     <div id="svelte" class="flex flex-1">  <div class="flex-1 flex flex-col"><nav class="flex items-center justify-between flex-wrap bg-sky-500 p-4 shadow-lg shadow-black"><a href="/" class="flex items-center flex-shrink-0 mr-6" data-svelte-h="svelte-182jekm"><img class="h-8 w-8 mr-2" src="/coin.svg" alt="The Technickel logo, a 5 cent Canadian coin (nickel)"> <span class="font-bold text-2xl tracking-tight text-white">TECHNICKEL</span></a> <div class="block sm:hidden"><button class="flex items-center px-3 py-2 rounded text-sky-200 border-sky-400 hover:text-white hover:border-white" data-svelte-h="svelte-1b9600t"><svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></button></div> <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto"><div class="text-sm sm:flex-grow"><a href="/blog" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Blog</a> <a href="/projects" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Projects</a> <a href="/contact" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Contact</a> <a href="/support" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Support</a></div></div></nav> <div class="flex-1 flex p-4 md:p-8 justify-center"> <div class="flex flex-col justify-center"><div class="flex justify-center mb-4"><a class="btn m-auto" href="/blog" data-svelte-h="svelte-8nt738">Back to Blogs</a></div> <div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 px-4 md:px-16 py-8 break-all md:break-normal"><article class="prose prose-invert"><h1>Web Components 101</h1> <p>2022-03-07 - Bradley Leonard</p> <h2 data-svelte-h="svelte-1a6o8ow">Web components</h2> <p data-svelte-h="svelte-1vgp0l8">You may have heard of components in the past and that’s because it’s not a new concept. Components have been used across many web frameworks as a way to divide pieces of the frontend into re-usable chunks of code. Web components are no different, they make use of native web technologies to encapsulate logic into a re-usable and maintainable unit of code so that you can implement framework agnostic components.</p> <p data-svelte-h="svelte-69jhkl">Web components can be coded using plain js, HTML and CSS but there are plenty of libraries that aim to make it easier to write them. A good comparison of web component libraries can be found <a href="https://webcomponents.dev/blog-images/all-the-ways-to-make-a-web-component/" rel="nofollow">here</a>. We are going to focus on plain old native versions rather than using a library. The technologies behind web components can primarily be broken down into 3 parts that we will cover in this 101 lesson. These parts are Custom Elements, The Shadow Dom and HTML Templates.</p> <p data-svelte-h="svelte-10adtbu">For this demo, we are going to create a web component that shows a lightbulb.</p> <h2 data-svelte-h="svelte-x7ylkm">Custom elements</h2> <p data-svelte-h="svelte-19617o1">Normally HTML exposes a number of elements for us to play with. You might be familiar with a bunch of them like p, h1, div, etc… as they come built in with HTML and modern browsers. Custom elements are exactly like those built in elements, except we get to define their behaviour. A custom element only requires two files. (One if you’re talking about the custom element itself, the other is to test) The first file we will look at is the HTML file we use for testing the component.</p> <!-- HTML_TAG_START --><pre class="shiki github-dark" style="background-color: #24292e" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">&lt;!</span><span style="color: #85E89D">doctype</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">html</span><span style="color: #E1E4E8">&gt;</span></span>
@@ -103,8 +103,8 @@
 			
 			<script>
 				{
-					__sveltekit_x17drp = {
-						base: new URL("..", location).pathname.slice(0, -1),
+					__sveltekit_maht3v = {
+						base: new URL("../..", location).pathname.slice(0, -1),
 						env: {}
 					};
 
@@ -113,8 +113,8 @@
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.5d0d665a.js"),
-						import("../_app/immutable/entry/app.fa7c19e5.js")
+						import("../../_app/immutable/entry/start.9c74f59e.js"),
+						import("../../_app/immutable/entry/app.43460515.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 8, 17],
