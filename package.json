@@ -25,7 +25,7 @@
     "shiki": "^0.14.4",
     "svelte": "^4.2.1",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.4.12"
+    "vite": "^4.5.2"
   },
   "type": "module",
   "dependencies": {
