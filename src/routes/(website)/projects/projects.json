@@ -99,5 +99,11 @@
     "type": "Open Source Contributions",
     "description": "A web component and related tools from Google that allows you to display interactive 3D models on the web and in AR.",
     "url": "https://github.com/google/model-viewer"
+  },
+  {
+    "name": "Syntax Podcast Website",
+    "type": "Open Source Contributions",
+    "description": "The website for a tasty treats podcast for Web Developers, Syntax.",
+    "url": "https://github.com/syntaxfm/website"
   }
 ]
