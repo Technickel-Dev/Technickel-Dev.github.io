@@ -93,5 +93,11 @@
     "type": "Open Source Contributions",
     "description": "A React components and hooks library for creating VR/AR applications with @react-three/fiber.",
     "url": "https://github.com/pmndrs/react-xr"
+  },
+  {
+    "name": "<model-viewer>",
+    "type": "Open Source Contributions",
+    "description": "A web component and related tools from Google that allows you to display interactive 3D models on the web and in AR.",
+    "url": "https://github.com/google/model-viewer"
   }
 ]
