@@ -73,6 +73,7 @@
 
 <svelte:head>
   <script src="/tarot/tmi.min.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
 </svelte:head>
 
 <div
@@ -80,10 +81,10 @@
   on:keydown={() => eightBall.roll()}
   role="button"
   tabindex="0"
-  class="container"
+  class="widget"
 >
   <div class="instructions">
-    {"Type '!8ball <<yes or no question here>>' to have the eight ball predict the future"}
+    {"Type !8ball { yes or no question }"}
   </div>
   <EightBall bind:this={eightBall} />
 
@@ -93,7 +94,11 @@
 </div>
 
 <style>
-  .container {
+  .widget {
+    font-family: "Roboto", sans-serif;
+    font-weight: bolder;
+    font-size: 6cqw;
+    container-type: inline-size;
     width: 400px;
     display: grid;
   }

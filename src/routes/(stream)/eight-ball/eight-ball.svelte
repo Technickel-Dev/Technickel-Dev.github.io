@@ -29,7 +29,7 @@
     "Very doubtful"
   ];
 
-  let currentAnswer: string;
+  let currentAnswer: string | undefined;
   let shake = false;
 
   const shakeAnimation = async () => {
@@ -117,7 +117,7 @@
   }
 
   .shake {
-    animation: vertical-shaking 0.35s infinite;
+    animation: vertical-shaking 0.35s 8;
   }
 
   @keyframes vertical-shaking {
