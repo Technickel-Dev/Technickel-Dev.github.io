@@ -1,4 +1,4 @@
-interface Asset {
+export interface Asset {
   appid: number;
   contextid: string;
   assetid: string;
@@ -7,14 +7,14 @@ interface Asset {
   amount: string;
 }
 
-interface Tag {
+export interface Tag {
   category: string;
   internal_name: string;
   localized_category_name: string;
   localized_tag_name: string;
 }
 
-interface Description {
+export interface Description {
   appid: number;
   classid: string;
   instanceid: string;
@@ -35,3 +35,12 @@ interface Description {
   marketable: number;
   tags: Tag[];
 }
+
+export interface PriceInfo {
+  success: boolean;
+  lowest_price: string;
+  volume: string;
+  median_price: string;
+}
+
+export const CANADIAN_CURRENCY = 20;

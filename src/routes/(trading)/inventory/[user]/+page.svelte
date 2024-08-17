@@ -1,6 +1,7 @@
 <script lang="ts">
   import Card from "./card.svelte";
   import Search from "./search.svelte";
+  import type { Asset, Description, Tag } from "./steam";
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -61,6 +62,7 @@
   <div class="flex flex-wrap justify-center gap-4">
     {#each filteredCards as card (card.classid)}
       <Card
+        description={card.description}
         iconUrl={card.description?.icon_url || ""}
         count={card.count}
         name={card.description?.name || "Unknown Name"}
