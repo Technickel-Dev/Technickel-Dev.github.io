@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
 
-  export let src;
-  export let name;
-  let imageUrl = "";
-  let observer;
+  export let src: string;
+  export let name: string;
+  let imageUrl: string = "";
+  let observer: IntersectionObserver;
+  let imageElement: HTMLImageElement;
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {
@@ -18,8 +19,6 @@
 
     observer.observe(imageElement);
   });
-
-  let imageElement;
 </script>
 
 <img class="w-32 h-32" bind:this={imageElement} src={imageUrl} alt="Lazy Loaded Image {name}" />
