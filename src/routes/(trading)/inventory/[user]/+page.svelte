@@ -31,8 +31,8 @@
       return { count, description, classid };
     })
     .filter((card) => {
-      if (!card.description) return false;
-      card.description.tags.some((tag: Tag) => tag.localized_tag_name === "Trading Card");
+      if (!card.description) return true;
+      return card.description.tags.some((tag: Tag) => tag.localized_tag_name === "Trading Card");
     });
 
   $: filteredCards = sortedByType
