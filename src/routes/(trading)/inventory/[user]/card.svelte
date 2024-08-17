@@ -1,19 +1,23 @@
 <script lang="ts">
   import toast from "svelte-french-toast";
   import LazyImage from "./lazy-image.svelte";
-  import { CANADIAN_CURRENCY, type Description, type PriceInfo } from "./steam";
+  import type { PriceInfo, SteamCard } from "./steam";
+  import { cards, updateCardPrice } from "../cardsStore";
 
-  export let iconUrl;
-  export let name;
   export let count;
-  export let type: string;
-  export let description: Description | null;
-  let price = "?";
+  export let cardId: string | undefined;
+  export let onClick: any;
 
-  $: strippedType = stripType();
+  $: card = $cards.find((trackedCard) => {
+    return trackedCard.card.description?.classid === cardId;
+  })?.card;
 
-  const stripType = () => {
-    let stripped = type;
+  $: strippedType = stripType(card);
+
+  const stripType = (card: SteamCard | undefined) => {
+    if (card == undefined || card.description == null) return;
+
+    let stripped = card.description.type;
 
     stripped = stripped.replace("Trading Card", "");
     stripped = stripped.replace("Foil", "");
@@ -22,36 +26,43 @@
   };
 
   const fetchPrice = async () => {
-    if (price != "?" || description == null) return;
+    if (card == null || card.price != "?" || card.description == null) return;
 
-    let res = await fetch(`/market?market_hash_name=${description.market_hash_name}`);
+    let res = await fetch(`/market?market_hash_name=${card.description.market_hash_name}`);
 
     if (res.status === 429) {
-      price = "?";
+      card.price = "?";
       toast.error("Rate limited 😵‍💫, please try again later!");
       return;
     }
 
     let priceInfo: PriceInfo = await res.json();
 
-    price = priceInfo.median_price || priceInfo.lowest_price;
+    updateCardPrice(
+      card.description.classid,
+      priceInfo.lowest_price || priceInfo.median_price || "N/A"
+    );
   };
 </script>
 
-<div class="flex flex-col items-center">
-  <div class="relative">
-    <LazyImage
-      src={`https://community.akamai.steamstatic.com/economy/image/${iconUrl}/128fx128f`}
-      {name}
-    />
-    <span
-      class="absolute top-0 right-0 transform -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
-    >
-      {count}
-    </span>
-  </div>
-  <div class="w-full text-center" on:mouseover={fetchPrice} on:focus={fetchPrice} role="banner">
-    {price}
-  </div>
-  <div class="w-32 text-xs break-words text-center">{name} - {strippedType}</div>
-</div>
+{#if card != null}
+  <button class="flex flex-col items-center" on:click={onClick} tabindex="0">
+    <div class="relative">
+      <LazyImage
+        src={`https://community.akamai.steamstatic.com/economy/image/${card.description?.icon_url}/128fx128f`}
+        name={card.description?.name || ""}
+      />
+      <span
+        class="absolute top-0 right-0 transform -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
+      >
+        {count}
+      </span>
+    </div>
+    <div class="w-full text-center" on:mouseover={fetchPrice} on:focus={fetchPrice} role="banner">
+      {card.price}
+    </div>
+    <div class="w-32 text-xs break-words text-center">
+      {card.description?.name} - {strippedType}
+    </div>
+  </button>
+{/if}

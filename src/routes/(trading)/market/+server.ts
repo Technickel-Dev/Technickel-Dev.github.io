@@ -27,5 +27,10 @@ export const GET = async ({ url }) => {
 
   const priceObject = await res.json();
 
-  return new Response(JSON.stringify(priceObject));
+  return new Response(JSON.stringify(priceObject), {
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": `public, max-age=${24 * 60 * 60}` // Cache for 24 hours
+    }
+  });
 };

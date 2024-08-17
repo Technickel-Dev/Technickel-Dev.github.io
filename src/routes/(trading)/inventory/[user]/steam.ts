@@ -43,4 +43,10 @@ export interface PriceInfo {
   median_price: string;
 }
 
+export interface SteamCard {
+  count: number;
+  description: Description | null;
+  price: string;
+}
+
 export const CANADIAN_CURRENCY = 20;
