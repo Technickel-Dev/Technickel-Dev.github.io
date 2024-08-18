@@ -33,6 +33,7 @@
     "@fontsource/dseg14-modern": "^5.0.7",
     "@fontsource/inknut-antiqua": "^5.0.8",
     "@fontsource/teko": "^5.0.9",
+    "cheerio": "^1.0.0",
     "matter-js": "^0.19.0",
     "svelte-french-toast": "^1.2.0"
   }

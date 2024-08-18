@@ -1,8 +1,20 @@
+import type { RequestHandler } from "@sveltejs/kit";
 import { CANADIAN_CURRENCY } from "../inventory/[user]/steam";
 
-/** @type {import('./$types').RequestHandler} */
-export const GET = async ({ url }) => {
-  const market_hash_name: string = url.searchParams.get("market_hash_name");
+export const GET: RequestHandler = async ({ url }) => {
+  const market_hash_name: string | null = url.searchParams.get("market_hash_name");
+
+  if (!market_hash_name) {
+    return new Response(
+      JSON.stringify({
+        error: "Missing input",
+        message: "You must include market_hash_name as input."
+      }),
+      {
+        status: 400
+      }
+    );
+  }
 
   const res = await fetch(
     `https://steamcommunity.com/market/priceoverview/?currency=${CANADIAN_CURRENCY}&appid=753&market_hash_name=${encodeURIComponent(

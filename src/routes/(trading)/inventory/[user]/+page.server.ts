@@ -1,5 +1,5 @@
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch, params }) {
+export const load = async ({ fetch, params }) => {
   const res = await fetch(
     `https://steamcommunity.com/inventory/${params.user}/753/6?l=english&count=2000`
   );
@@ -9,4 +9,4 @@ export async function load({ fetch, params }) {
   console.log(inventory);
 
   return inventory;
-}
+};

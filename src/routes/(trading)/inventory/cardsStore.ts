@@ -28,7 +28,10 @@ const setAssets = (assets: Asset[], descriptions: Description[]) => {
   const sortedByType = Object.entries(classidCounts)
     .map(([classid, count]) => {
       const description = getNameAndTypeByClassid(classid, descriptions);
-      return { card: { count, description, price: "?" }, numberSelected: 0 };
+      return {
+        card: { count, description, price: "?", numberOfCardsInBadge: -1 },
+        numberSelected: 0
+      };
     })
     .filter((trackedCard: TrackedCard) => {
       if (!trackedCard.card.description) return true;
@@ -81,7 +84,7 @@ const totalPrice = derived(selectedCards, ($cardsWithSelection) => {
     total += price * trackedCard.numberSelected;
   }
 
-  return Math.floor(total * 100) / 100;;
+  return Math.floor(total * 100) / 100;
 });
 
 const updateCardPrice = (classid: string, newPrice: string) => {
@@ -93,6 +96,23 @@ const updateCardPrice = (classid: string, newPrice: string) => {
           card: {
             ...trackedCard.card,
             price: newPrice
+          }
+        };
+      }
+      return trackedCard;
+    });
+  });
+};
+
+const updateNumberOfCardsInBadge = (appid: number, numberOfCardsInBadge: number) => {
+  cards.update((trackedCards) => {
+    return trackedCards.map((trackedCard) => {
+      if (trackedCard.card.description?.market_fee_app === appid) {
+        return {
+          ...trackedCard,
+          card: {
+            ...trackedCard.card,
+            numberOfCardsInBadge: numberOfCardsInBadge
           }
         };
       }
@@ -149,6 +169,7 @@ export {
   setAssets,
   totalPrice,
   updateCardPrice,
+  updateNumberOfCardsInBadge,
   addCard,
   removeCard
 };
