@@ -1,5 +1,6 @@
 import { writable, derived } from "svelte/store";
 import type { Asset, Description, SteamCard, Tag } from "./[user]/steam";
+import { db } from "./db";
 
 interface TrackedCard {
   card: SteamCard;
@@ -71,38 +72,30 @@ const selectedCards = derived(cards, ($cards) =>
     })
 );
 
-const totalPrice = derived(selectedCards, ($cardsWithSelection) => {
-  let total = 0;
+export const totalPrice = derived(selectedCards, ($cardsWithSelection) => {
+  return async (currency: number) => {
+    let total = 0;
+    for (const trackedCard of $cardsWithSelection) {
+      let price = await db.prices
+        .where({ classid: +trackedCard.card.description!!.classid, currency })
+        .first();
+      if (price == undefined || (!price.lowest_price && !price.median_price)) {
+        return "???";
+      }
 
-  for (const trackedCard of $cardsWithSelection) {
-    const price = parseFloat(trackedCard.card.price.replace(/[^0-9.-]+/g, ""));
+      let priceString = price.lowest_price ? price.lowest_price : price.median_price;
 
-    if (isNaN(price)) {
-      return "???";
+      let matches = priceString.match(/[\d.,]+/);
+      if (!matches) return "???";
+
+      let priceNumber = parseFloat(matches[0].replace(",", "."));
+
+      total += priceNumber * trackedCard.numberSelected;
     }
 
-    total += price * trackedCard.numberSelected;
-  }
-
-  return Math.floor(total * 100) / 100;
+    return Math.floor(total * 100) / 100;
+  };
 });
-
-const updateCardPrice = (classid: string, newPrice: string) => {
-  cards.update((trackedCards) => {
-    return trackedCards.map((trackedCard) => {
-      if (trackedCard.card.description?.classid === classid) {
-        return {
-          ...trackedCard,
-          card: {
-            ...trackedCard.card,
-            price: newPrice
-          }
-        };
-      }
-      return trackedCard;
-    });
-  });
-};
 
 const updateNumberOfCardsInBadge = (appid: number, numberOfCardsInBadge: number) => {
   cards.update((trackedCards) => {
@@ -167,8 +160,6 @@ export {
   searchQuery,
   filteredCards,
   setAssets,
-  totalPrice,
-  updateCardPrice,
   updateNumberOfCardsInBadge,
   addCard,
   removeCard

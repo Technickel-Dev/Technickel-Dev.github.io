@@ -2,74 +2,43 @@
   import toast from "svelte-french-toast";
   import LazyImage from "./lazy-image.svelte";
   import type { PriceInfo, SteamCard } from "./steam";
-  import { cards, updateCardPrice, updateNumberOfCardsInBadge } from "../cardsStore";
+  import { cards, updateNumberOfCardsInBadge } from "../cardsStore";
   import { onMount } from "svelte";
+  import { db } from "../db";
+  import { liveQuery } from "dexie";
 
   export let count;
-  export let cardId: string | undefined;
+  export let classid: number;
   export let onClick: any;
+  export let currency: number;
+
+  let price = liveQuery(() => db.prices.where({ classid, currency }).first());
 
   onMount(async () => {
-    await fetchPriceFromCache();
-
     await fetchNumberOfCardsInBadgeFromCache();
   });
 
-  const fetchPriceFromCache = async () => {
-    if (card == null || card.price != "?" || card.description == null) return;
-
-    let res = await fetch(`/market?market_hash_name=${card.description.market_hash_name}`, {
-      cache: "only-if-cached",
-      mode: "same-origin"
-    }).catch((e: Error) => {
-      console.log(e);
-
-      if (e.name == "TypeError") return;
-    });
-
-    if (!res) return;
-
-    // Too many requests (429) or any other error we can just default because we didn't actually get a valid response from cache
-    if (res.status !== 200) {
-      card.price = "?";
-      return;
-    }
-
-    let priceInfo: PriceInfo = await res.json();
-
-    updateCardPrice(
-      card.description.classid,
-      priceInfo.lowest_price || priceInfo.median_price || "N/A"
-    );
-  };
-
   const fetchNumberOfCardsInBadgeFromCache = async () => {
     if (card == null || card.numberOfCardsInBadge != -1 || card.description == null) return;
-
     let res = await fetch(`/badge?appid=${card.description.market_fee_app}`, {
       cache: "only-if-cached",
       mode: "same-origin"
     }).catch((e: Error) => {
       console.log(e);
-
       if (e.name == "TypeError") return;
     });
-
     if (!res) return;
-
     // Too many requests (429) or any other error we can just default because we didn't actually get a valid response from cache
     if (res.status !== 200) {
       card.numberOfCardsInBadge = -1;
       return;
     }
-
     let badgeNumber = await res.json();
-
     updateNumberOfCardsInBadge(card.description.market_fee_app, badgeNumber);
   };
 
   $: card = $cards.find((trackedCard) => {
-    return trackedCard.card.description?.classid === cardId;
+    return +trackedCard.card.description?.classid!! === classid;
   })?.card;
 
   $: strippedType = stripType(card);
@@ -86,9 +55,15 @@
   };
 
   const fetchPrice = async () => {
-    if (card == null || card.price != "?" || card.description == null) return;
+    if (card == null || card.description == null) return;
 
-    let res = await fetch(`/market?market_hash_name=${card.description.market_hash_name}`);
+    let price = await db.prices.where({ classid: +card.description!!.classid, currency }).first();
+
+    if (price != undefined) return;
+
+    let res = await fetch(
+      `/market?market_hash_name=${card.description.market_hash_name}&currency=${currency}`
+    );
 
     if (res.status === 429) {
       card.price = "?";
@@ -98,10 +73,13 @@
 
     let priceInfo: PriceInfo = await res.json();
 
-    updateCardPrice(
-      card.description.classid,
-      priceInfo.lowest_price || priceInfo.median_price || "N/A"
-    );
+    await db.prices.add({
+      classid: +card.description.classid,
+      lowest_price: priceInfo.lowest_price,
+      median_price: priceInfo.median_price,
+      success: priceInfo.success,
+      currency: +currency
+    });
   };
 
   const fetchBadgeNumber = async () => {
@@ -115,7 +93,7 @@
   };
 </script>
 
-{#if card != null}
+{#if card && currency}
   <button class="flex flex-col items-center" on:click={onClick} tabindex="0">
     <div class="relative">
       <LazyImage
@@ -138,7 +116,7 @@
       </span>
     </div>
     <div class="w-full text-center" on:mouseover={fetchPrice} on:focus={fetchPrice} role="banner">
-      {card.price}
+      {$price ? $price?.lowest_price || $price?.median_price || "N/A" : "?"}
     </div>
     <div class="w-32 text-xs break-words text-center">
       {card.description?.name} - {strippedType}

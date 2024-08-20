@@ -3,11 +3,21 @@
   import Drawer from "./drawer.svelte";
   import Search from "./search.svelte";
   import { filteredCards, setAssets, addCard } from "../cardsStore";
+  import CurrencySelect from "./currency-select.svelte";
+  import { onMount } from "svelte";
+  import { DEFAULT_CURRENCY } from "../../market/market";
 
   /** @type {import('./$types').PageData} */
   export let data;
 
   $: setAssets(data.assets, data.descriptions);
+
+  let currency: string;
+
+  onMount(() => {
+    const params = new URLSearchParams(window.location.search);
+    currency = params.get("currency") || DEFAULT_CURRENCY;
+  });
 </script>
 
 <svelte:head>
@@ -16,16 +26,20 @@
 
 <div class="w-full h-full flex flex-col p-4">
   <h2 class="pb-4">Cards</h2>
+  <CurrencySelect />
   <div class="flex flex-wrap justify-center gap-4">
     {#each $filteredCards as trackedCard (trackedCard.card.description?.classid)}
-      <Card
-        cardId={trackedCard.card.description?.classid}
-        count={trackedCard.card.count}
-        onClick={() => {
-          if (!trackedCard.card.description) return;
-          addCard(trackedCard.card);
-        }}
-      />
+      {#if trackedCard.card.description}
+        <Card
+          currency={+currency}
+          classid={+trackedCard.card.description.classid}
+          count={trackedCard.card.count}
+          onClick={() => {
+            if (!trackedCard.card.description) return;
+            addCard(trackedCard.card);
+          }}
+        />
+      {/if}
     {:else}
       No Cards
     {/each}

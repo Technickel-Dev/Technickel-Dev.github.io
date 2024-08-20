@@ -49,5 +49,3 @@ export interface SteamCard {
   price: string;
   numberOfCardsInBadge: number;
 }
-
-export const CANADIAN_CURRENCY = 20;

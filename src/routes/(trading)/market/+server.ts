@@ -1,8 +1,9 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import { CANADIAN_CURRENCY } from "../inventory/[user]/steam";
+import { DEFAULT_CURRENCY } from "./market";
 
 export const GET: RequestHandler = async ({ url }) => {
   const market_hash_name: string | null = url.searchParams.get("market_hash_name");
+  const currency: string = url.searchParams.get("currency") || DEFAULT_CURRENCY;
 
   if (!market_hash_name) {
     return new Response(
@@ -17,7 +18,7 @@ export const GET: RequestHandler = async ({ url }) => {
   }
 
   const res = await fetch(
-    `https://steamcommunity.com/market/priceoverview/?currency=${CANADIAN_CURRENCY}&appid=753&market_hash_name=${encodeURIComponent(
+    `https://steamcommunity.com/market/priceoverview/?currency=${currency}&appid=753&market_hash_name=${encodeURIComponent(
       market_hash_name
     )}`
   );
