@@ -46,6 +46,4 @@ export interface PriceInfo {
 export interface SteamCard {
   count: number;
   description: Description | null;
-  price: string;
-  numberOfCardsInBadge: number;
 }

@@ -2,40 +2,18 @@
   import toast from "svelte-french-toast";
   import LazyImage from "./lazy-image.svelte";
   import type { PriceInfo, SteamCard } from "./steam";
-  import { cards, updateNumberOfCardsInBadge } from "../cardsStore";
-  import { onMount } from "svelte";
+  import { cards } from "../cardsStore";
   import { db } from "../db";
   import { liveQuery } from "dexie";
 
   export let count;
   export let classid: number;
+  export let appid: number;
   export let onClick: any;
   export let currency: number;
 
   let price = liveQuery(() => db.prices.where({ classid, currency }).first());
-
-  onMount(async () => {
-    await fetchNumberOfCardsInBadgeFromCache();
-  });
-
-  const fetchNumberOfCardsInBadgeFromCache = async () => {
-    if (card == null || card.numberOfCardsInBadge != -1 || card.description == null) return;
-    let res = await fetch(`/badge?appid=${card.description.market_fee_app}`, {
-      cache: "only-if-cached",
-      mode: "same-origin"
-    }).catch((e: Error) => {
-      console.log(e);
-      if (e.name == "TypeError") return;
-    });
-    if (!res) return;
-    // Too many requests (429) or any other error we can just default because we didn't actually get a valid response from cache
-    if (res.status !== 200) {
-      card.numberOfCardsInBadge = -1;
-      return;
-    }
-    let badgeNumber = await res.json();
-    updateNumberOfCardsInBadge(card.description.market_fee_app, badgeNumber);
-  };
+  let badge = liveQuery(() => db.badges.where({ appid }).first());
 
   $: card = $cards.find((trackedCard) => {
     return +trackedCard.card.description?.classid!! === classid;
@@ -66,7 +44,6 @@
     );
 
     if (res.status === 429) {
-      card.price = "?";
       toast.error("Rate limited 😵‍💫, please try again later!");
       return;
     }
@@ -78,18 +55,27 @@
       lowest_price: priceInfo.lowest_price,
       median_price: priceInfo.median_price,
       success: priceInfo.success,
-      currency: +currency
+      currency: +currency,
+      createdAt: Date.now()
     });
   };
 
   const fetchBadgeNumber = async () => {
-    if (card == null || card.numberOfCardsInBadge != -1 || card.description == null) return;
+    if (card == null || card.description == null) return;
+
+    let badge = await db.badges.where({ appid: card.description.market_fee_app }).first();
+
+    if (badge != undefined) return;
 
     let res = await fetch(`/badge?appid=${card.description.market_fee_app}`);
 
     let badgeNumber = await res.json();
 
-    updateNumberOfCardsInBadge(card.description.market_fee_app, badgeNumber);
+    db.badges.add({
+      appid: card.description.market_fee_app,
+      numberOfCards: badgeNumber,
+      createdAt: Date.now()
+    });
   };
 </script>
 
@@ -107,7 +93,7 @@
         role="banner"
         class="absolute top-0 left-0 transform -translate-y-1/2 bg-blue-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
       >
-        {card.numberOfCardsInBadge}
+        {$badge?.numberOfCards || "-1"}
       </span>
       <span
         class="absolute top-0 right-0 transform -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"

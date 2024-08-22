@@ -53,6 +53,7 @@
             {#if selectedCard.card.description}
               <Card
                 classid={+selectedCard.card.description.classid}
+                appid={+selectedCard.card.description.market_fee_app}
                 currency={+currency}
                 count={selectedCard.numberSelected}
                 onClick={() => removeCard(selectedCard.card)}

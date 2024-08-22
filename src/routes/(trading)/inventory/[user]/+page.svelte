@@ -6,6 +6,7 @@
   import CurrencySelect from "./currency-select.svelte";
   import { onMount } from "svelte";
   import { DEFAULT_CURRENCY } from "../../market/market";
+  import { db } from "../db";
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -17,6 +18,19 @@
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
     currency = params.get("currency") || DEFAULT_CURRENCY;
+
+    // DB TTL
+    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;
+    const THIRTY_DAYS_IN_MS = 30 * 24 * 60 * 60 * 1000;
+
+    db.prices
+      .where("createdAt")
+      .below(Date.now() - ONE_DAY_IN_MS)
+      .delete();
+    db.badges
+      .where("createdAt")
+      .below(Date.now() - THIRTY_DAYS_IN_MS)
+      .delete();
   });
 </script>
 
@@ -33,6 +47,7 @@
         <Card
           currency={+currency}
           classid={+trackedCard.card.description.classid}
+          appid={trackedCard.card.description.market_fee_app}
           count={trackedCard.card.count}
           onClick={() => {
             if (!trackedCard.card.description) return;

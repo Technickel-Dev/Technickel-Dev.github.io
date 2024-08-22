@@ -30,7 +30,7 @@ const setAssets = (assets: Asset[], descriptions: Description[]) => {
     .map(([classid, count]) => {
       const description = getNameAndTypeByClassid(classid, descriptions);
       return {
-        card: { count, description, price: "?", numberOfCardsInBadge: -1 },
+        card: { count, description },
         numberSelected: 0
       };
     })
@@ -97,23 +97,6 @@ export const totalPrice = derived(selectedCards, ($cardsWithSelection) => {
   };
 });
 
-const updateNumberOfCardsInBadge = (appid: number, numberOfCardsInBadge: number) => {
-  cards.update((trackedCards) => {
-    return trackedCards.map((trackedCard) => {
-      if (trackedCard.card.description?.market_fee_app === appid) {
-        return {
-          ...trackedCard,
-          card: {
-            ...trackedCard.card,
-            numberOfCardsInBadge: numberOfCardsInBadge
-          }
-        };
-      }
-      return trackedCard;
-    });
-  });
-};
-
 const addCard = (card: SteamCard) => {
   cards.update((trackedCards) => {
     if (card.description == null) return trackedCards;
@@ -154,13 +137,4 @@ const removeCard = (card: SteamCard) => {
   });
 };
 
-export {
-  cards,
-  selectedCards,
-  searchQuery,
-  filteredCards,
-  setAssets,
-  updateNumberOfCardsInBadge,
-  addCard,
-  removeCard
-};
+export { cards, selectedCards, searchQuery, filteredCards, setAssets, addCard, removeCard };
