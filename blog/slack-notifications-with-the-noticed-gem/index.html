@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     
-		<link href="../../_app/immutable/assets/app.9453fc34.css" rel="stylesheet">
-		<link rel="modulepreload" href="../../_app/immutable/entry/start.91b0b7b8.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/scheduler.e43ee5f3.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/singletons.73c9a0a1.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="../../_app/immutable/entry/app.6f5bb8fa.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper.a4192956.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/index.9c613d38.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/0.2459f4db.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/8.36f1faf7.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/17.7bf081b1.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/card.10cad194.js"><title>Slack Notifications with the Noticed Gem</title><!-- HEAD_svelte-1hjcmj9_START --><meta property="og:type" content="article"><meta property="og:title" content="Slack Notifications with the Noticed Gem"><!-- HEAD_svelte-1hjcmj9_END -->
+		<link href="../../_app/immutable/assets/app.C4lR9Uw3.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.5UtAgd6B.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/entry.Bp49SZr-.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/scheduler.CHusSsjn.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.6ms4aPJv.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/control.CYgJF_JY.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.BDNH3IEt.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper.D6kgxu3v.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.D6p7BjwM.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.DcIK5PkA.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/9.DDPe4Ukx.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/19.CADpfZiq.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/card.BLG_sD8y.js"><title>Slack Notifications with the Noticed Gem</title><!-- HEAD_svelte-1hjcmj9_START --><meta property="og:type" content="article"><meta property="og:title" content="Slack Notifications with the Noticed Gem"><!-- HEAD_svelte-1hjcmj9_END -->
   </head>
   <body>
     <div id="svelte" class="flex flex-1">  <div class="flex-1 flex flex-col"><nav class="flex items-center justify-between flex-wrap bg-sky-500 p-4 shadow-lg shadow-black"><a href="/" class="flex items-center flex-shrink-0 mr-6" data-svelte-h="svelte-182jekm"><img class="h-8 w-8 mr-2" src="/coin.svg" alt="The Technickel logo, a 5 cent Canadian coin (nickel)"> <span class="font-bold text-2xl tracking-tight text-white">TECHNICKEL</span></a> <div class="block sm:hidden"><button class="flex items-center px-3 py-2 rounded text-sky-200 border-sky-400 hover:text-white hover:border-white" data-svelte-h="svelte-1b9600t"><svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></button></div> <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto"><div class="text-sm sm:flex-grow"><a href="/blog" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Blog</a> <a href="/projects" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Projects</a> <a href="/contact" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Contact</a> <a href="/support" class="mt-4 hidden sm:inline-block sm:mt-0 text-sky-200 hover:text-white mr-4">Support</a></div></div></nav> <div class="flex-1 flex p-4 md:p-8 justify-center"> <div class="flex flex-col justify-center"><div class="flex justify-center mb-4"><a class="btn m-auto" href="/blog" data-svelte-h="svelte-8nt738">Back to Blogs</a></div> <div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 px-4 md:px-16 py-8 break-all md:break-normal"><article class="prose prose-invert"><h1>Slack Notifications with the Noticed Gem</h1> <p>2022-02-17 - Bradley Leonard</p> <h2 data-svelte-h="svelte-1ukekoe">Introduction</h2> <p data-svelte-h="svelte-1gym41a">Notification systems are essential in user based applications in order to convey important information to your users when they are in or out of the application. This blog post will make use of the <a href="https://api.slack.com/messaging/managing" rel="nofollow">Slack API</a> and the <a href="https://github.com/excid3/noticed" rel="nofollow">Noticed</a> gem to show you how you can send a Slack notification from your app and get that important information to your users in their favorite messaging program, Slack!</p> <p data-svelte-h="svelte-1aw9cun">Our example is going to use the role of a ticketing system notification, but your use case could be any type of notification!</p> <h2 data-svelte-h="svelte-1dhgrc5">What is Noticed?</h2> <p data-svelte-h="svelte-1qati8o">Noticed is an open source Ruby gem built by Rails aficionado excid3 <a href="https://twitter.com/excid3" rel="nofollow">(Chris Oliver)</a>. It makes it SUPER easy to work with a number of different communication methods to send notifications to your users / systems. Some of these methods include:</p> <ul data-svelte-h="svelte-dyoea9"><li>Database</li> <li>Email</li> <li>ActionCable channels</li> <li>Slack</li> <li>Microsoft Teams</li> <li>Twilio (SMS)</li> <li>Vonage / Nexmo (SMS)</li> <li>iOS Apple Push Notifications</li> <li>Firebase Cloud Messaging (Android and more)</li> <li>Your own custom method!</li></ul> <p data-svelte-h="svelte-qdnsfb">If you aren’t already familiar with the basics of Noticed, you can watch this <a href="https://youtu.be/Scffi4otlFc" rel="nofollow">screencast</a> to get your feet wet.</p> <h2 data-svelte-h="svelte-7jdin6">The code</h2> <p data-svelte-h="svelte-9d4d2d">Here is all the code your going to need to send off a Slack message notification! Keep in mind the <a href="https://github.com/excid3/noticed#-installation" rel="nofollow">Noticed gem needs to be setup</a> and you need to <a href="https://api.slack.com/messaging/webhooks#create_a_webhook" rel="nofollow">generate a webhook for Slack</a> before any of this will work. Let’s break it down piece by piece.</p> <!-- HTML_TAG_START --><pre class="shiki github-dark" style="background-color: #24292e" tabindex="0"><code><span class="line"><span style="color: #F97583">class</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">TicketClosedNotification</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&lt;</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Noticed::Base</span></span>
@@ -58,9 +59,8 @@
 			
 			<script>
 				{
-					__sveltekit_eui2ou = {
-						base: new URL("../..", location).pathname.slice(0, -1),
-						env: {}
+					__sveltekit_uxtoje = {
+						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
@@ -68,11 +68,11 @@
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.91b0b7b8.js"),
-						import("../../_app/immutable/entry/app.6f5bb8fa.js")
+						import("../../_app/immutable/entry/start.5UtAgd6B.js"),
+						import("../../_app/immutable/entry/app.BDNH3IEt.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
-							node_ids: [0, 8, 17],
+							node_ids: [0, 9, 19],
 							data,
 							form: null,
 							error: null
