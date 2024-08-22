@@ -11,7 +11,7 @@
     "deploy": "npx gh-pages -d build"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.4",
+    "@sveltejs/adapter-netlify": "^4.3.3",
     "@sveltejs/kit": "^2.5.22",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@tailwindcss/typography": "^0.5.10",
