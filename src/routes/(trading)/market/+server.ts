@@ -1,9 +1,10 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import { DEFAULT_CURRENCY } from "./market";
+import { DEFAULT_CURRENCY, DEFAULT_INVENTORY } from "./market";
 
 export const GET: RequestHandler = async ({ url }) => {
   const market_hash_name: string | null = url.searchParams.get("market_hash_name");
   const currency: string = url.searchParams.get("currency") || DEFAULT_CURRENCY;
+  const market_fee_app: string = url.searchParams.get("appid") || DEFAULT_INVENTORY;
 
   if (!market_hash_name) {
     return new Response(
@@ -17,11 +18,11 @@ export const GET: RequestHandler = async ({ url }) => {
     );
   }
 
-  const res = await fetch(
-    `https://steamcommunity.com/market/priceoverview/?currency=${currency}&appid=753&market_hash_name=${encodeURIComponent(
-      market_hash_name
-    )}`
-  );
+  let marketUrl = `https://steamcommunity.com/market/priceoverview/?currency=${currency}&appid=${market_fee_app}&market_hash_name=${encodeURIComponent(
+    market_hash_name
+  )}`;
+
+  const res = await fetch(marketUrl);
 
   if (res.status === 429) {
     return new Response(

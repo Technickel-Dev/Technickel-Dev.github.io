@@ -1,7 +1,8 @@
 import * as cheerio from "cheerio";
+import { DEFAULT_INVENTORY, INVENTORIES } from "../../market/market.js";
 
 /** @type {import('./$types').PageLoad} */
-export const load = async ({ fetch, params }) => {
+export const load = async ({ fetch, params, url }) => {
   let steamId: string;
 
   if (isNaN(params.user)) {
@@ -47,8 +48,12 @@ export const load = async ({ fetch, params }) => {
     steamId = params.user;
   }
 
+  const appid: string = url.searchParams.get("inventory") || DEFAULT_INVENTORY;
+
+  let context = INVENTORIES[appid].context;
+
   const res = await fetch(
-    `https://steamcommunity.com/inventory/${steamId}/753/6?l=english&count=2000`
+    `https://steamcommunity.com/inventory/${steamId}/${appid}/${context}?l=english&count=2000`
   );
 
   const inventory = await res.json();

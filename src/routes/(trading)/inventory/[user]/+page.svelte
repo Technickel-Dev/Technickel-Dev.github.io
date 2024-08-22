@@ -5,19 +5,22 @@
   import { filteredCards, setAssets, addCard } from "../cardsStore";
   import CurrencySelect from "./currency-select.svelte";
   import { onMount } from "svelte";
-  import { DEFAULT_CURRENCY } from "../../market/market";
+  import { DEFAULT_CURRENCY, DEFAULT_INVENTORY } from "../../market/market";
   import { db } from "../db";
+  import InventorySelect from "./inventory-select.svelte";
 
   /** @type {import('./$types').PageData} */
   export let data;
 
-  $: setAssets(data.assets, data.descriptions);
+  $: setAssets(data.assets, data.descriptions, appid);
 
   let currency: string;
+  let appid: string;
 
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
     currency = params.get("currency") || DEFAULT_CURRENCY;
+    appid = params.get("inventory") || DEFAULT_INVENTORY;
 
     // DB TTL
     const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;
@@ -41,6 +44,7 @@
 <div class="w-full h-full flex flex-col p-4">
   <h2 class="pb-4">Cards</h2>
   <CurrencySelect />
+  <InventorySelect />
   <div class="flex flex-wrap justify-center gap-4">
     {#each $filteredCards as trackedCard (trackedCard.card.description?.classid)}
       {#if trackedCard.card.description}
@@ -53,6 +57,7 @@
             if (!trackedCard.card.description) return;
             addCard(trackedCard.card);
           }}
+          showBadges={appid == DEFAULT_INVENTORY}
         />
       {/if}
     {:else}

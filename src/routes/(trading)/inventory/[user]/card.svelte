@@ -11,6 +11,7 @@
   export let appid: number;
   export let onClick: any;
   export let currency: number;
+  export let showBadges: boolean;
 
   let price = liveQuery(() => db.prices.where({ classid, currency }).first());
   let badge = liveQuery(() => db.badges.where({ appid }).first());
@@ -39,9 +40,11 @@
 
     if (price != undefined) return;
 
-    let res = await fetch(
-      `/market?market_hash_name=${card.description.market_hash_name}&currency=${currency}`
-    );
+    let url = `/market?market_hash_name=${encodeURIComponent(
+      card.description.market_hash_name
+    )}&currency=${currency}&appid=${card.description!!.appid}`;
+
+    let res = await fetch(url);
 
     if (res.status === 429) {
       toast.error("Rate limited 😵‍💫, please try again later!");
@@ -87,14 +90,16 @@
         name={card.description?.name || ""}
       />
 
-      <span
-        on:mouseover={fetchBadgeNumber}
-        on:focus={fetchBadgeNumber}
-        role="banner"
-        class="absolute top-0 left-0 transform -translate-y-1/2 bg-blue-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
-      >
-        {$badge?.numberOfCards || "-1"}
-      </span>
+      {#if showBadges}
+        <span
+          on:mouseover={fetchBadgeNumber}
+          on:focus={fetchBadgeNumber}
+          role="banner"
+          class="absolute top-0 left-0 transform -translate-y-1/2 bg-blue-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
+        >
+          {$badge?.numberOfCards || "-1"}
+        </span>
+      {/if}
       <span
         class="absolute top-0 right-0 transform -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
       >

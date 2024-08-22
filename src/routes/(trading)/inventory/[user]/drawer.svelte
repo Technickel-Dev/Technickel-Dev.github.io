@@ -2,16 +2,19 @@
   import { onMount } from "svelte";
   import { selectedCards, removeCard, totalPrice } from "../cardsStore";
   import Card from "./card.svelte";
-  import { CURRENCIES, DEFAULT_CURRENCY } from "../../market/market";
+  import { CURRENCIES, DEFAULT_CURRENCY, DEFAULT_INVENTORY } from "../../market/market";
 
   let isOpen = false;
   let currencyDenomination: string;
   let currency: string;
+  let appid: string;
 
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
     currency = params.get("currency") || DEFAULT_CURRENCY;
     currencyDenomination = CURRENCIES[currency].label;
+
+    appid = params.get("inventory") || DEFAULT_INVENTORY;
   });
 </script>
 
@@ -57,6 +60,7 @@
                 currency={+currency}
                 count={selectedCard.numberSelected}
                 onClick={() => removeCard(selectedCard.card)}
+                showBadges={appid == DEFAULT_INVENTORY}
               />
             {/if}
           {:else}

@@ -43,3 +43,14 @@ export const CURRENCIES: Currency = {
   "40": { label: "CRC", long: "Costa Rican Colón" },
   "41": { label: "UYU", long: "Uruguayan Peso" }
 };
+
+type Inventory = {
+  [key: string]: { label: string; context: number };
+};
+
+export const DEFAULT_INVENTORY = "753";
+
+export const INVENTORIES: Inventory = {
+  "753": { label: "Steam", context: 6 },
+  "730": { label: "Counter Strike", context: 2 }
+};
