@@ -58,7 +58,5 @@ export const load = async ({ fetch, params, url }) => {
 
   const inventory = await res.json();
 
-  console.log(inventory);
-
   return inventory;
 };

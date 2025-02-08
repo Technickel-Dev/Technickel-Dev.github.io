@@ -12,7 +12,7 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
-  $: setAssets(data.assets, data.descriptions, appid);
+  $: setAssets(data.assets, data.descriptions);
 
   let currency: string;
   let appid: string;

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { CURRENCIES } from "../../market/market";
+  import { CURRENCIES, DEFAULT_CURRENCY } from "../../market/market";
 
-  let selectedCurrency = "20"; // Default to CAD
+  let selectedCurrency = DEFAULT_CURRENCY; // Default to CAD
 
   function handleSelect(event: any) {
     const value = event.target.value;

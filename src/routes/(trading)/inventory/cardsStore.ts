@@ -1,7 +1,6 @@
 import { writable, derived } from "svelte/store";
-import type { Asset, Description, SteamCard, Tag } from "./[user]/steam";
+import type { Asset, Description, SteamCard } from "./[user]/steam";
 import { db } from "./db";
-import { DEFAULT_INVENTORY } from "../market/market";
 
 interface TrackedCard {
   card: SteamCard;
@@ -11,11 +10,11 @@ interface TrackedCard {
 const cards = writable<TrackedCard[]>([]);
 const searchQuery = writable<string>("");
 
-const setAssets = (assets: Asset[], descriptions: Description[], appid: string) => {
+const setAssets = (assets: Asset[], descriptions: Description[]) => {
   const getClassidCounts = (assets: Asset[]) => {
     return assets.reduce<Record<string, number>>((acc, asset) => {
-      const { classid } = asset;
-      acc[classid] = (acc[classid] || 0) + 1;
+      const { classid, amount } = asset;
+      acc[classid] = (acc[classid] || 0) + +amount;
       return acc;
     }, {});
   };
@@ -34,15 +33,6 @@ const setAssets = (assets: Asset[], descriptions: Description[], appid: string) 
       numberSelected: 0
     };
   });
-
-  if (appid == DEFAULT_INVENTORY) {
-    sortedByType = sortedByType.filter((trackedCard: TrackedCard) => {
-      if (!trackedCard.card.description) return true;
-      return trackedCard.card.description.tags.some(
-        (tag: Tag) => tag.localized_tag_name === "Trading Card"
-      );
-    });
-  }
 
   cards.set(sortedByType);
 };
