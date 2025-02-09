@@ -86,7 +86,9 @@ export const totalPrice = derived(selectedCards, ($cardsWithSelection) => {
       total += priceNumber * trackedCard.numberSelected;
     }
 
-    return Math.floor(total * 100) / 100;
+    // Least number of digits after decimal capped at 5
+
+    return parseFloat(total.toFixed(5));
   };
 });
 

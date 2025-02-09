@@ -51,15 +51,11 @@ export const GET: RequestHandler = async ({ url }) => {
 
   const priceObject = await res.json();
 
-  console.log(priceObject);
-
   // Workaround to give a price to gems
   if (original_market_hash_name == GEMS_MARKET_HASH_NAME) {
     priceObject.lowest_price = calculateGemPrice(priceObject.lowest_price);
     priceObject.median_price = calculateGemPrice(priceObject.median_price);
     priceObject.volume = 0;
-
-    console.log(priceObject);
   }
 
   return new Response(JSON.stringify(priceObject), {
