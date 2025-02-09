@@ -54,3 +54,6 @@ export const INVENTORIES: Inventory = {
   "753": { label: "Steam", context: 6 },
   "730": { label: "Counter Strike", context: 2 }
 };
+
+export const GEMS_MARKET_HASH_NAME = "753-Gems";
+export const SACK_OF_GEMS_MARKET_HASH_NAME = "753-Sack of Gems";
