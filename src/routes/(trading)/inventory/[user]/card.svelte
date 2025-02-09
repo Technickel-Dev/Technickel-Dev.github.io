@@ -5,6 +5,7 @@
   import { cards } from "../cardsStore";
   import { db } from "../db";
   import { liveQuery } from "dexie";
+  import { onDestroy } from "svelte";
 
   export let count;
   export let classid: number;
@@ -12,6 +13,28 @@
   export let onClick: any;
   export let currency: number;
   export let showBadges: boolean;
+  let intervals: NodeJS.Timeout[] = [];
+  let isLongPress = false;
+
+  const startPress = () => {
+    isLongPress = true;
+
+    setTimeout(() => {
+      if (isLongPress) {
+        intervals.push(
+          setInterval(onClick, 200)
+        ); // Repeat every interval
+      }
+    }, 500);
+  };
+
+  const cancelPress = () => {
+    isLongPress = false;
+
+    intervals.map((interval) => {
+      clearInterval(interval);
+    });
+  };
 
   let price = liveQuery(() => db.prices.where({ classid, currency }).first());
   let badge = liveQuery(() => db.badges.where({ appid }).first());
@@ -80,10 +103,26 @@
       createdAt: Date.now()
     });
   };
+
+  onDestroy(() => {
+    intervals.map((interval) => {
+      clearInterval(interval);
+    });
+  });
 </script>
 
 {#if card && currency}
-  <button class="flex flex-col items-center" on:click={onClick} tabindex="0">
+  <button
+    class="flex flex-col items-center"
+    on:click={onClick}
+    on:mousedown={startPress}
+    on:mouseup={cancelPress}
+    on:mouseleave={cancelPress}
+    on:touchstart={startPress}
+    on:touchend={cancelPress}
+    on:touchcancel={cancelPress}
+    tabindex="0"
+  >
     <div class="relative">
       <LazyImage
         src={`https://community.akamai.steamstatic.com/economy/image/${card.description?.icon_url}/128fx128f`}
