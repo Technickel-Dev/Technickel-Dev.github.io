@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { DEFAULT_INVENTORY, INVENTORIES } from "../../market/market";
 
-  let selectedInventory = DEFAULT_INVENTORY; // Default to Steam
+  let selectedInventory = $state(DEFAULT_INVENTORY); // Default to Steam
 
   function handleSelect(event: any) {
     const value = event.target.value;
@@ -27,7 +27,7 @@
 </script>
 
 <select
-  on:change={handleSelect}
+  onchange={handleSelect}
   bind:value={selectedInventory}
   class="rounded-md bg-neutral-600 p-2 mb-8 text-white"
 >

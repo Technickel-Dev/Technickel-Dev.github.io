@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { CURRENCIES, DEFAULT_CURRENCY } from "../../market/market";
 
-  let selectedCurrency = DEFAULT_CURRENCY; // Default to CAD
+  let selectedCurrency = $state(DEFAULT_CURRENCY); // Default to CAD
 
   function handleSelect(event: any) {
     const value = event.target.value;
@@ -27,7 +27,7 @@
 </script>
 
 <select
-  on:change={handleSelect}
+  onchange={handleSelect}
   bind:value={selectedCurrency}
   class="rounded-md bg-neutral-600 p-2 mb-8 text-white"
 >

@@ -29,8 +29,8 @@
     "Very doubtful"
   ];
 
-  let currentAnswer: string | undefined;
-  let shake = false;
+  let currentAnswer: string | undefined = $state();
+  let shake = $state(false);
 
   const shakeAnimation = async () => {
     shake = true;

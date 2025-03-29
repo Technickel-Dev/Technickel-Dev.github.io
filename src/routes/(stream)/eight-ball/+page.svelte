@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import EightBall from "./eight-ball.svelte";
   import type { Client } from "tmi.js";
@@ -10,9 +10,9 @@
   let username: string | null;
   let queue: Request[] = [];
 
-  let eightBall: EightBall;
-  let currentName: string = DEFAULT_NAME;
-  let currentMessage: string = DEFAULT_MESSAGE;
+  let eightBall: EightBall = $state();
+  let currentName: string = $state(DEFAULT_NAME);
+  let currentMessage: string = $state(DEFAULT_MESSAGE);
 
   type Request = {
     name: string;
@@ -20,7 +20,7 @@
   };
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
+    username = page.url.searchParams.get("username");
 
     connectToTwitchChat();
   });
@@ -77,8 +77,8 @@
 </svelte:head>
 
 <div
-  on:click={() => eightBall.roll()}
-  on:keydown={() => eightBall.roll()}
+  onclick={() => eightBall.roll()}
+  onkeydown={() => eightBall.roll()}
   role="button"
   tabindex="0"
   class="widget"

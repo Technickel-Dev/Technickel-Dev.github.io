@@ -11,7 +11,7 @@
   const ANIMATION_DURATION = 4000;
   const DEFAULT_NUMBER_SPINS = 5;
 
-  let wheel: HTMLDivElement;
+  let wheel: HTMLDivElement = $state();
 
   onMount(() => {
     initWheel();

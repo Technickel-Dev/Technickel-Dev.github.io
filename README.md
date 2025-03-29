@@ -16,14 +16,14 @@ You don't need to run this repo yourself to see the website in action: [Check it
 ## 🛠️ Installation
 - Download the required packages:
 ```
-yarn install
+npm install
 ```
 This will install all dependencies needed to run the app.
 
 
 - Run the development server:
 ```
-yarn dev
+npm run dev
 ```
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

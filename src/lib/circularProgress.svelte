@@ -1,10 +1,14 @@
 <script lang="ts">
   // Circular Progress Credit: Stephane Vanraes https://github.com/stephane-vanraes/svelte-progresscircle
 
-  export let value = 0;
-  export let max = 100;
+  interface Props {
+    value?: number;
+    max?: number;
+  }
 
-  $: progressPath = () => {
+  let { value = $bindable(0), max = 100 }: Props = $props();
+
+  let progressPath = $derived(() => {
     if (value <= 0) {
       return "";
     } else if (value >= max) {
@@ -24,7 +28,7 @@
 
       return path;
     }
-  };
+  });
 
   export const timedProgress = (ms: number) => {
     let intervalCounter = 0;

@@ -1,11 +1,14 @@
 <script>
   import ShieldBadge from "./shield_badge.svelte";
 
-  export let url;
-  export let badge;
-  export let logo;
-  export let alt;
-  export let logoColor = "white";
+  /** @type {{url: any, badge: any, logo: any, alt: any, logoColor?: string}} */
+  let {
+    url,
+    badge,
+    logo,
+    alt,
+    logoColor = "white"
+  } = $props();
 </script>
 
 <a href={url}>

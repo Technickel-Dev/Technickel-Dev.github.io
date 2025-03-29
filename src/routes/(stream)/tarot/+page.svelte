@@ -22,18 +22,16 @@
   const TOTAL_ANIMATION_DELAY = 2 * ANIMATION_DELAY;
 
   let username: string | null;
-  let userDelaySeconds = 0;
-  let active = false;
-  let reverse = false;
+  let userDelaySeconds = $state(0);
+  let active = $state(false);
+  let reverse = $state(false);
   let cardInitialized = false;
   let timeInitialized = false;
   let queue: string[] = [];
-  let currentName = "hello-world";
-  let currentCard: Card = cards[0];
-  let currentTime = 0;
-  let endTime = 0;
-  $: progressBarValue = (100 - ((endTime - currentTime) / totalDelayMilliSeconds) * 100) | 0;
-  $: totalDelayMilliSeconds = setDrawDelay(userDelaySeconds);
+  let currentName = $state("hello-world");
+  let currentCard: Card = $state(cards[0]);
+  let currentTime = $state(0);
+  let endTime = $state(0);
 
   onMount(async () => {
     username = $page.url.searchParams.get("username");
@@ -162,13 +160,15 @@
       }
     });
   };
+  let totalDelayMilliSeconds = $derived(setDrawDelay(userDelaySeconds));
+  let progressBarValue = $derived((100 - ((endTime - currentTime) / totalDelayMilliSeconds) * 100) | 0);
 </script>
 
 <svelte:head>
   <script src="/tarot/tmi.min.js"></script>
 </svelte:head>
 
-<div class="container" on:mouseenter={showTarotCard} on:mouseleave={hideTarotCard} role="main">
+<div class="container" onmouseenter={showTarotCard} onmouseleave={hideTarotCard} role="main">
   <div class="progress-container">
     <CircularProgress value={progressBarValue} />
   </div>

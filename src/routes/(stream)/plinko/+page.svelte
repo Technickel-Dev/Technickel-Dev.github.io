@@ -4,7 +4,7 @@
   import { createBoundary } from "./boundary";
   import { createPegs } from "./peg";
   import { createPuck } from "./puck";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import type { Client } from "tmi.js";
 
   const ROWS = 5;
@@ -13,13 +13,13 @@
   const PEG_COLOR = "#0EA5E9";
   const PUCK_RADIUS = 24;
 
-  let canvas: HTMLCanvasElement;
+  let canvas: HTMLCanvasElement = $state();
 
-  let engine = Matter.Engine.create();
+  let engine = $state(Matter.Engine.create());
   engine.timing.timeScale = 0.5;
 
   let runner = Matter.Runner.create();
-  let render: Matter.Render;
+  let render: Matter.Render = $state();
 
   onMount(() => {
     render = Matter.Render.create({
@@ -39,7 +39,7 @@
     // Run the engine
     Matter.Runner.run(runner, engine);
 
-    let username = $page.url.searchParams.get("username");
+    let username = page.url.searchParams.get("username");
     connectToTwitchChat(username);
   });
 
@@ -96,10 +96,10 @@
 
 <canvas
   bind:this={canvas}
-  on:mousedown={() => {
+  onmousedown={() => {
     createPuck(engine.world, render.canvas.width, "Test", PUCK_RADIUS);
   }}
-/>
+></canvas>
 <div class="text-container"><p>Type !plinko to send a puck down</p></div>
 
 <style>

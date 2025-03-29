@@ -6,9 +6,13 @@
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
   // Mr JD https://stackoverflow.com/questions/7466070/how-can-i-achieve-a-slot-machine-spinning-effect-with-css3-jquery
 
-  export let spinOffset = 0;
+  interface Props {
+    spinOffset?: number;
+  }
+
+  let { spinOffset = 0 }: Props = $props();
   let animationDuration = 4000 + spinOffset * 1000;
-  let reel: HTMLDivElement;
+  let reel: HTMLDivElement = $state();
 
   onMount(() => {
     initReel();

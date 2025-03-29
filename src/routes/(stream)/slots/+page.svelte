@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import Reel from "./reel.svelte";
   import { sleep } from "$lib/utils";
@@ -11,17 +11,17 @@
   const WIN_ANIMATION_TIME = 2000;
 
   let username: string | null;
-  let reelOne: Reel;
-  let reelTwo: Reel;
-  let reelThree: Reel;
-  let lever: HTMLDivElement;
+  let reelOne: Reel = $state();
+  let reelTwo: Reel = $state();
+  let reelThree: Reel = $state();
+  let lever: HTMLDivElement = $state();
 
   let queue: string[] = [];
-  let currentName = DEFAULT_NAME;
-  let winner = false;
+  let currentName = $state(DEFAULT_NAME);
+  let winner = $state(false);
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
+    username = page.url.searchParams.get("username");
 
     connectToTwitchChat();
   });
@@ -105,17 +105,17 @@
     <Reel bind:this={reelTwo} spinOffset={1} />
     <Reel bind:this={reelThree} spinOffset={2} />
   </div>
-  <div class="mount" />
+  <div class="mount"></div>
   <div
     class="lever"
     bind:this={lever}
-    on:click={rollAll}
-    on:keypress={rollAll}
+    onclick={rollAll}
+    onkeypress={rollAll}
     role="button"
     tabindex="0"
   >
-    <div class="arm" />
-    <div class="ball" />
+    <div class="arm"></div>
+    <div class="ball"></div>
   </div>
   <div class="console">
     <div class="instructions">Type !slots to spin the wheel</div>

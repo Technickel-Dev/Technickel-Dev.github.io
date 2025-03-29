@@ -1,11 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  export let src: string;
-  export let name: string;
-  let imageUrl: string = "";
+  interface Props {
+    src: string;
+    name: string;
+  }
+
+  let { src, name }: Props = $props();
+  let imageUrl: string = $state("");
   let observer: IntersectionObserver;
-  let imageElement: HTMLImageElement;
+  let imageElement: HTMLImageElement = $state();
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {

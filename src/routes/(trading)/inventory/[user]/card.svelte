@@ -7,12 +7,23 @@
   import { liveQuery } from "dexie";
   import { onDestroy } from "svelte";
 
-  export let count;
-  export let classid: number;
-  export let appid: number;
-  export let onClick: any;
-  export let currency: number;
-  export let showBadges: boolean;
+  interface Props {
+    count: any;
+    classid: number;
+    appid: number;
+    onClick: any;
+    currency: number;
+    showBadges: boolean;
+  }
+
+  let {
+    count,
+    classid,
+    appid,
+    onClick,
+    currency,
+    showBadges
+  }: Props = $props();
   let intervals: NodeJS.Timeout[] = [];
   let isLongPress = false;
 
@@ -39,11 +50,7 @@
   let price = liveQuery(() => db.prices.where({ classid, currency }).first());
   let badge = liveQuery(() => db.badges.where({ appid }).first());
 
-  $: card = $cards.find((trackedCard) => {
-    return +trackedCard.card.description?.classid!! === classid;
-  })?.card;
 
-  $: strippedType = stripType(card);
 
   const stripType = (card: SteamCard | undefined) => {
     if (card == undefined || card.description == null) return;
@@ -109,18 +116,22 @@
       clearInterval(interval);
     });
   });
+  let card = $derived($cards.find((trackedCard) => {
+    return +trackedCard.card.description?.classid!! === classid;
+  })?.card);
+  let strippedType = $derived(stripType(card));
 </script>
 
 {#if card && currency}
   <button
     class="flex flex-col items-center"
-    on:click={onClick}
-    on:mousedown={startPress}
-    on:mouseup={cancelPress}
-    on:mouseleave={cancelPress}
-    on:touchstart={startPress}
-    on:touchend={cancelPress}
-    on:touchcancel={cancelPress}
+    onclick={onClick}
+    onmousedown={startPress}
+    onmouseup={cancelPress}
+    onmouseleave={cancelPress}
+    ontouchstart={startPress}
+    ontouchend={cancelPress}
+    ontouchcancel={cancelPress}
     tabindex="0"
   >
     <div class="relative">
@@ -131,8 +142,8 @@
 
       {#if showBadges}
         <span
-          on:mouseover={fetchBadgeNumber}
-          on:focus={fetchBadgeNumber}
+          onmouseover={fetchBadgeNumber}
+          onfocus={fetchBadgeNumber}
           role="banner"
           class="absolute top-0 left-0 transform -translate-y-1/2 bg-blue-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
         >
@@ -145,7 +156,7 @@
         {count}
       </span>
     </div>
-    <div class="w-full text-center" on:mouseover={fetchPrice} on:focus={fetchPrice} role="banner">
+    <div class="w-full text-center" onmouseover={fetchPrice} onfocus={fetchPrice} role="banner">
       {$price ? $price?.lowest_price || $price?.median_price || "N/A" : "?"}
     </div>
     <div class="w-32 text-xs break-words text-center">

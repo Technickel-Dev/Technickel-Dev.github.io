@@ -2,7 +2,11 @@
   import Card from "$lib/card.svelte";
   import BlogBackButton from "./blog_back_button.svelte";
 
-  export let data;
+  interface Props {
+    data: any;
+  }
+
+  let { data }: Props = $props();
 </script>
 
 <svelte:head>
@@ -17,7 +21,7 @@
   </div>
   <Card classes="px-4 md:px-16 py-8 break-all md:break-normal">
     <article class="prose prose-invert">
-      <svelte:component this={data.content} />
+      <data.content />
     </article>
   </Card>
   <div class="flex justify-center mt-4">

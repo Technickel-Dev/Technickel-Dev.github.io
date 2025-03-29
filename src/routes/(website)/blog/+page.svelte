@@ -1,13 +1,19 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import type { Post } from "./post";
 
-  /** @type {import('./$types').PageData} */
-  export let data;
+  
+  interface Props {
+    data: import('./$types').PageData;
+  }
 
-  let searchQuery = "";
-  let filteredPosts: Post[] = [];
+  let { data }: Props = $props();
 
-  $: {
+  let searchQuery = $state("");
+  let filteredPosts: Post[] = $state([]);
+
+  run(() => {
     if (searchQuery) {
       filteredPosts = data.posts.filter((post: Post) => {
         // Case insensive search
@@ -22,7 +28,7 @@
     } else {
       filteredPosts = [...data.posts];
     }
-  }
+  });
 </script>
 
 <svelte:head>

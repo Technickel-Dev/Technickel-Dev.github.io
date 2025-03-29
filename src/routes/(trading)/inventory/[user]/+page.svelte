@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import Card from "./card.svelte";
   import Drawer from "./drawer.svelte";
   import Search from "./search.svelte";
@@ -9,13 +11,19 @@
   import { db } from "../db";
   import InventorySelect from "./inventory-select.svelte";
 
-  /** @type {import('./$types').PageData} */
-  export let data;
+  
+  interface Props {
+    data: import('./$types').PageData;
+  }
 
-  $: setAssets(data.assets, data.descriptions);
+  let { data }: Props = $props();
 
-  let currency: string;
-  let appid: string;
+  run(() => {
+    setAssets(data.assets, data.descriptions);
+  });
+
+  let currency: string = $state();
+  let appid: string = $state();
 
   onMount(() => {
     const params = new URLSearchParams(window.location.search);

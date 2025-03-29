@@ -4,10 +4,10 @@
   import Card from "./card.svelte";
   import { CURRENCIES, DEFAULT_CURRENCY, DEFAULT_INVENTORY } from "../../market/market";
 
-  let isOpen = false;
-  let currencyDenomination: string;
-  let currency: string;
-  let appid: string;
+  let isOpen = $state(false);
+  let currencyDenomination: string = $state();
+  let currency: string = $state();
+  let appid: string = $state();
 
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
@@ -21,7 +21,7 @@
 <div class="fixed bottom-0 left-0 w-full mx-auto text-white">
   <div class="bg-neutral-500 shadow-lg rounded-t-lg">
     <button
-      on:click={() => (isOpen = !isOpen)}
+      onclick={() => (isOpen = !isOpen)}
       class="w-full p-4 text-left bg-neutral-600 hover:bg-neutral-700 focus:outline-none rounded-t-lg"
     >
       <div class="flex items-center justify-between">

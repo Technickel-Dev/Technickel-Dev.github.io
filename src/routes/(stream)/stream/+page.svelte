@@ -6,7 +6,7 @@
     return facts[randIndex]
   }
   
-  $: fact = getFact(facts)
+  let fact = $derived(getFact(facts))
 </script>
 
 <main class="flex flex-col w-full justify-center items-center gap-4">
