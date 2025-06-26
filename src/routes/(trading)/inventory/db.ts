@@ -1,3 +1,4 @@
+import { browser } from "$app/environment";
 import Dexie, { type EntityTable } from "dexie";
 
 export interface Price {
@@ -15,30 +16,38 @@ export interface Badge {
   createdAt: number;
 }
 
-const db = new Dexie("TradingDatabase") as Dexie & {
-  prices: EntityTable<
-    Price,
-    "classid" // primary key "classid" (for the typings only)
-  >;
-  badges: EntityTable<Badge, "appid">;
-};
+const getDb = () => {
+  if (!browser) {
+    return null;
+  }
 
-// Schema declaration:
-db.version(2)
-  .stores({
-    prices: "id++, [classid+currency], lowest_price, median_price, success, createdAt", // primary key "id" (for the runtime!)
-    badges: "id++, appid, numberOfCards, createdAt"
-  })
-  .upgrade((transaction) => {
-    return transaction
-      .table("prices")
-      .toCollection()
-      .delete()
+  const db = new Dexie("TradingDatabase") as Dexie & {
+    prices: EntityTable<
+      Price,
+      "classid" // primary key "classid" (for the typings only)
+    >;
+    badges: EntityTable<Badge, "appid">;
+  };
+
+  // Schema declaration:
+  db.version(2)
+    .stores({
+      prices: "id++, [classid+currency], lowest_price, median_price, success, createdAt", // primary key "id" (for the runtime!)
+      badges: "id++, appid, numberOfCards, createdAt"
+    })
+    .upgrade((transaction) => {
+      return transaction
+        .table("prices")
+        .toCollection()
+        .delete()
+    });
+
+  // Schema declaration:
+  db.version(1).stores({
+    prices: "id++, [classid+currency], lowest_price, median_price, success" // primary key "id" (for the runtime!)
   });
 
-// Schema declaration:
-db.version(1).stores({
-  prices: "id++, [classid+currency], lowest_price, median_price, success" // primary key "id" (for the runtime!)
-});
+  return db;
+};
 
-export { db };
+export const db = getDb();
