@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from "svelte/legacy";
 
   import type { Post } from "./post";
 
-  
   interface Props {
-    data: import('./$types').PageData;
+    data: import("./$types").PageData;
   }
 
   let { data }: Props = $props();
@@ -57,12 +56,11 @@
           <p>{metadata.description}</p>
           <div>
             {#each metadata.tags as tag}
-              <a
-                class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0 text-white hover:text-stone-300"
-                href={`/`}
+              <span
+                class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0 text-white"
               >
                 <span class="align-top text-sm">{tag}</span>
-              </a>
+              </span>
             {/each}
           </div>
         </a>
