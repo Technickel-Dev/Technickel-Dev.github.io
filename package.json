@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-netlify": "^5.2.4",
-    "@sveltejs/kit": "^2.49.2",
+    "@sveltejs/kit": "^2.52.2",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/matter-js": "^0.19.0",
