@@ -3,6 +3,6 @@
   export let classes = "";
 </script>
 
-<div class="p-4 rounded overflow-hidden shadow-lg {bgColor} {classes}">
+<div class="p-4 rounded-sm overflow-hidden shadow-lg {bgColor} {classes}">
   <slot />
 </div>

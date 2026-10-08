@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import EightBall from "./eight-ball.svelte";
   import type { Client } from "tmi.js";
@@ -20,7 +20,7 @@
   };
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
+    username = page.url.searchParams.get("username");
 
     connectToTwitchChat();
   });

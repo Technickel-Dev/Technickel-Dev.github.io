@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import CircularProgress from "$lib/circularProgress.svelte";
+  import { page } from "$app/state";
+  import CircularProgress from "#lib/circularProgress.svelte";
   import "@fontsource/inknut-antiqua";
   import { fade } from "svelte/transition";
   import { cards } from "./tarot_cards.json";
@@ -36,8 +36,8 @@
   $: totalDelayMilliSeconds = setDrawDelay(userDelaySeconds);
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
-    let delay = $page.url.searchParams.get("cardDelaySeconds");
+    username = page.url.searchParams.get("username");
+    let delay = page.url.searchParams.get("cardDelaySeconds");
 
     if (delay != null) {
       userDelaySeconds = parseInt(delay);

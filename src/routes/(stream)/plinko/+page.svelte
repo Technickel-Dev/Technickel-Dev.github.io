@@ -4,7 +4,7 @@
   import { createBoundary } from "./boundary";
   import { createPegs } from "./peg";
   import { createPuck } from "./puck";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import type { Client } from "tmi.js";
 
   const ROWS = 5;
@@ -39,7 +39,7 @@
     // Run the engine
     Matter.Runner.run(runner, engine);
 
-    let username = $page.url.searchParams.get("username");
+    let username = page.url.searchParams.get("username");
     connectToTwitchChat(username);
   });
 
@@ -99,7 +99,7 @@
   on:mousedown={() => {
     createPuck(engine.world, render.canvas.width, "Test", PUCK_RADIUS);
   }}
-/>
+></canvas>
 <div class="text-container"><p>Type !plinko to send a puck down</p></div>
 
 <style>

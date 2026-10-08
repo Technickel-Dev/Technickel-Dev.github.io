@@ -29,12 +29,12 @@
   <title>Blog - Technickel</title>
 </svelte:head>
 
-<div class="flex flex-col flex-grow">
+<div class="flex flex-col grow">
   <h1>Posts</h1>
-  <div class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 mb-4">
+  <div class="p-4 rounded-sm overflow-hidden shadow-lg bg-neutral-600 mb-4">
     <input
       type="text"
-      class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black focus:outline-none"
+      class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black focus:outline-hidden"
       placeholder="Search All Posts"
       bind:value={searchQuery}
     />
@@ -44,7 +44,7 @@
     {#each filteredPosts as { slug, metadata }}
       <li>
         <a
-          class="p-4 rounded overflow-hidden shadow-lg bg-neutral-600 flex flex-col bg- gap-2 mb-4 text-white hover:text-stone-300"
+          class="p-4 rounded-sm overflow-hidden shadow-lg bg-neutral-600 flex flex-col bg- gap-2 mb-4 text-white hover:text-stone-300"
           href={`/blog/${slug}`}
         >
           <h2>{metadata.title}</h2>

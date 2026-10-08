@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "@fontsource/teko";
-  import { randomNumber, waitForAnimations } from "$lib/utils";
+  import { randomNumber, waitForAnimations } from "#lib/utils.ts";
 
   // Credits:
   // Desandro https://3dtransforms.desandro.com/carousel

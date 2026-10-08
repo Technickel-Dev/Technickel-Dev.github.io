@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import Wheel from "./wheel.svelte";
   import "@fontsource/dseg14-modern";
-  import { sleep } from "$lib/utils";
-  import CircularProgress from "$lib/circularProgress.svelte";
+  import { sleep } from "#lib/utils.ts";
+  import CircularProgress from "#lib/circularProgress.svelte";
   import type { Client } from "tmi.js";
 
   const DEFAULT_NAME = "None";
@@ -24,7 +24,7 @@
   var progressBarValue: number = 0;
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
+    username = page.url.searchParams.get("username");
 
     connectToTwitchChat();
   });
@@ -127,7 +127,7 @@
 >
   <Wheel bind:this={wheel} />
 </div>
-<div class="arrow" />
+<div class="arrow"></div>
 <div class="screen top">
   <p class="underline">Top</p>
   <p>{topUser || DEFAULT_NAME} - {topScore || 0}</p>

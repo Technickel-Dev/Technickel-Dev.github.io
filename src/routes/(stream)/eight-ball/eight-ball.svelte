@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { randomNumber, sleep } from "$lib/utils";
+  import { randomNumber, sleep } from "#lib/utils.ts";
   import { fade } from "svelte/transition";
 
   const FADE_DURATION = 3000;

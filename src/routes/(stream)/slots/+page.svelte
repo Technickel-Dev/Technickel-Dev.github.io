@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
   import Reel from "./reel.svelte";
-  import { sleep } from "$lib/utils";
+  import { sleep } from "#lib/utils.ts";
   import type { ChatUserstate, Client } from "tmi.js";
 
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP
@@ -21,7 +21,7 @@
   let winner = false;
 
   onMount(async () => {
-    username = $page.url.searchParams.get("username");
+    username = page.url.searchParams.get("username");
 
     connectToTwitchChat();
   });
@@ -105,7 +105,7 @@
     <Reel bind:this={reelTwo} spinOffset={1} />
     <Reel bind:this={reelThree} spinOffset={2} />
   </div>
-  <div class="mount" />
+  <div class="mount"></div>
   <div
     class="lever"
     bind:this={lever}
@@ -114,8 +114,8 @@
     role="button"
     tabindex="0"
   >
-    <div class="arm" />
-    <div class="ball" />
+    <div class="arm"></div>
+    <div class="ball"></div>
   </div>
   <div class="console">
     <div class="instructions">Type !slots to spin the wheel</div>

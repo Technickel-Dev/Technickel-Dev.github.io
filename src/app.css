@@ -1,9 +1,46 @@
 /* Write your global styles here, in PostCSS syntax */
-@import url("animation.css");
+@import url("animation.css") layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility btn {
+  @apply py-2 px-4 bg-sky-500 rounded-full text-center text-white hover:text-stone-300;
+}
+
+@utility curve {
+  z-index: -1;
+  clip-path: polygon(
+    50% 0,
+    100% 0,
+    100% 100%,
+    50% 100%,
+    0 100%,
+    10% 87.5%,
+    15% 75%,
+    15% 25%,
+    10% 12.5%,
+    0 0
+  );
+}
 
 @layer base {
   hr {
@@ -20,33 +57,11 @@
   }
 }
 
-@layer components {
-  .btn {
-    @apply py-2 px-4 bg-sky-500 rounded-full text-center text-white hover:text-stone-300;
-  }
-}
-
-body {
-  @apply min-h-screen flex bg-neutral-700 text-white;
-  background-image: url("/hexagon_pattern.svg");
-  background-repeat: repeat;
-}
-
 @layer utilities {
-  .curve {
-    z-index: -1;
-    clip-path: polygon(
-      50% 0,
-      100% 0,
-      100% 100%,
-      50% 100%,
-      0 100%,
-      10% 87.5%,
-      15% 75%,
-      15% 25%,
-      10% 12.5%,
-      0 0
-    );
+  body {
+    @apply min-h-screen flex bg-neutral-700 text-white;
+    background-image: url("/hexagon_pattern.svg");
+    background-repeat: repeat;
   }
 }
 
