@@ -1,11 +1,14 @@
 <script>
-  export let title = undefined;
-  export let subTitle = undefined;
-  export let text = "Lorem ipsum here";
-  export let imageSrc = undefined;
-  export let alt = "Card image";
-  export let url = undefined;
-  export let index = undefined;
+  /** @type {{title?: any, subTitle?: any, text?: string, imageSrc?: any, alt?: string, url?: any, index?: any}} */
+  let {
+    title = undefined,
+    subTitle = undefined,
+    text = "Lorem ipsum here",
+    imageSrc = undefined,
+    alt = "Card image",
+    url = undefined,
+    index = undefined
+  } = $props();
 
   let check_out_options = [
     "Check out",

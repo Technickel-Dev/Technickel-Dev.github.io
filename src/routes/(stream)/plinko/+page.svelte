@@ -13,13 +13,13 @@
   const PEG_COLOR = "#0EA5E9";
   const PUCK_RADIUS = 24;
 
-  let canvas: HTMLCanvasElement;
+  let canvas: HTMLCanvasElement = $state();
 
-  let engine = Matter.Engine.create();
+  let engine = $state(Matter.Engine.create());
   engine.timing.timeScale = 0.5;
 
   let runner = Matter.Runner.create();
-  let render: Matter.Render;
+  let render: Matter.Render = $state();
 
   onMount(() => {
     render = Matter.Render.create({
@@ -96,7 +96,7 @@
 
 <canvas
   bind:this={canvas}
-  on:mousedown={() => {
+  onmousedown={() => {
     createPuck(engine.world, render.canvas.width, "Test", PUCK_RADIUS);
   }}
 ></canvas>

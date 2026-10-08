@@ -1,9 +1,12 @@
 <script>
-  export let badge;
-  export let style = "for-the-badge";
-  export let logo;
-  export let logoColor = "white";
-  export let alt = "Badge";
+  /** @type {{badge: any, style?: string, logo: any, logoColor?: string, alt?: string}} */
+  let {
+    badge,
+    style = "for-the-badge",
+    logo,
+    logoColor = "white",
+    alt = "Badge"
+  } = $props();
 </script>
 
 <img

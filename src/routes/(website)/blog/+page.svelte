@@ -1,13 +1,18 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import type { Post } from "./post";
 
-  /** @type {import('./$types').PageData} */
-  export let data;
+  interface Props {
+    data: import("./$types").PageData;
+  }
 
-  let searchQuery = "";
-  let filteredPosts: Post[] = [];
+  let { data }: Props = $props();
 
-  $: {
+  let searchQuery = $state("");
+  let filteredPosts: Post[] = $state([]);
+
+  run(() => {
     if (searchQuery) {
       filteredPosts = data.posts.filter((post: Post) => {
         // Case insensive search
@@ -22,7 +27,7 @@
     } else {
       filteredPosts = [...data.posts];
     }
-  }
+  });
 </script>
 
 <svelte:head>
@@ -34,7 +39,7 @@
   <div class="p-4 rounded-sm overflow-hidden shadow-lg bg-neutral-600 mb-4">
     <input
       type="text"
-      class="w-full rounded-md text-md p-2 border-4 border-sky-500 text-black focus:outline-hidden"
+      class="w-full rounded-md text-md p-2 border-4 border-sky-500 bg-white text-black focus:outline-hidden"
       placeholder="Search All Posts"
       bind:value={searchQuery}
     />
@@ -51,12 +56,11 @@
           <p>{metadata.description}</p>
           <div>
             {#each metadata.tags as tag}
-              <a
-                class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0 text-white hover:text-stone-300"
-                href={`/`}
+              <span
+                class="bg-sky-500 py-0.5 px-3 rounded-full mr-1 last:m-0 text-white"
               >
                 <span class="align-top text-sm">{tag}</span>
-              </a>
+              </span>
             {/each}
           </div>
         </a>

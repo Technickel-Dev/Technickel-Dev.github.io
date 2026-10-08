@@ -11,14 +11,14 @@
   const NUMBERS = [100, 5, 90, 25, 70, 45, 10, 65, 30, 85, 50, 95, 55, 75, 40, 20, 60, 35, 80, 15];
 
   let username: string | null;
-  let wheel: Wheel;
-  let progressBar: CircularProgress;
+  let wheel: Wheel = $state();
+  let progressBar: CircularProgress = $state();
 
   let queue: string[] = [];
-  let currentName: string = DEFAULT_NAME;
-  let currentScore: number = 0;
-  let topUser: string = DEFAULT_NAME;
-  let topScore: number = 0;
+  let currentName: string = $state(DEFAULT_NAME);
+  let currentScore: number = $state(0);
+  let topUser: string = $state(DEFAULT_NAME);
+  let topScore: number = $state(0);
   let spinAgain: boolean = false;
   let manualSpinCount: number = 0;
   var progressBarValue: number = 0;
@@ -120,8 +120,8 @@
 
 <div
   class="container"
-  on:click={() => manualSpin()}
-  on:keypress={() => manualSpin()}
+  onclick={() => manualSpin()}
+  onkeypress={() => manualSpin()}
   role="button"
   tabindex="0"
 >

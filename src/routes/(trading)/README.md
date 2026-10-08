@@ -1,0 +1,1 @@
+Useful info on Steam API: https://github.com/Revadike/InternalSteamWebAPI/wiki
