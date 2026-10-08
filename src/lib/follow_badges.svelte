@@ -1,5 +1,5 @@
 <script>
-  import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
+  import ShieldBadgeButton from "#lib/shield_badge_button.svelte";
 </script>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">

@@ -1,5 +1,5 @@
 <script>
-  import Nav from "$lib/nav.svelte";
+  import Nav from "#lib/nav.svelte";
   import "../../app.css";
   /** @type {{children?: import('svelte').Snippet}} */
   let { children } = $props();

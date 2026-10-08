@@ -159,7 +159,7 @@
     <div class="w-full text-center" onmouseover={fetchPrice} onfocus={fetchPrice} role="banner">
       {$price ? $price?.lowest_price || $price?.median_price || "N/A" : "?"}
     </div>
-    <div class="w-32 text-xs break-words text-center">
+    <div class="w-32 text-xs wrap-break-word text-center">
       {card.description?.name} - {strippedType}
     </div>
   </button>

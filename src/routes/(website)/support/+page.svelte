@@ -1,8 +1,8 @@
 <script>
-  import Card from "$lib/card.svelte";
-  import FollowBadges from "$lib/follow_badges.svelte";
-  import MutedText from "$lib/muted_text.svelte";
-  import ShieldBadgeButton from "$lib/shield_badge_button.svelte";
+  import Card from "#lib/card.svelte";
+  import FollowBadges from "#lib/follow_badges.svelte";
+  import MutedText from "#lib/muted_text.svelte";
+  import ShieldBadgeButton from "#lib/shield_badge_button.svelte";
 </script>
 
 <svelte:head>

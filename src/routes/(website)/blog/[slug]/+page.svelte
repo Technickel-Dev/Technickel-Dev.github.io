@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Card from "$lib/card.svelte";
+  import Card from "#lib/card.svelte";
   import BlogBackButton from "./blog_back_button.svelte";
 
   interface Props {

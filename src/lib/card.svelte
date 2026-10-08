@@ -3,6 +3,6 @@
   let { bgColor = "bg-neutral-600", classes = "", children } = $props();
 </script>
 
-<div class="p-4 rounded overflow-hidden shadow-lg {bgColor} {classes}">
+<div class="p-4 rounded-sm overflow-hidden shadow-lg {bgColor} {classes}">
   {@render children?.()}
 </div>

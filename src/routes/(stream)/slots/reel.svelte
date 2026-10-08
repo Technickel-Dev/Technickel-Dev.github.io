@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { randomNumber, waitForAnimations } from "$lib/utils";
+  import { randomNumber, waitForAnimations } from "#lib/utils.ts";
 
   // Desandro https://3dtransforms.desandro.com/carousel
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP

@@ -4,38 +4,42 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "package": "svelte-kit package",
     "preview": "vite preview",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "deploy": "npx gh-pages -d build"
+    "lint": "prettier --ignore-path .gitignore --check .",
+    "format": "prettier --ignore-path .gitignore --write ."
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
   },
   "devDependencies": {
-    "@sveltejs/adapter-netlify": "^5.2.4",
-    "@sveltejs/kit": "^2.70.1",
-    "@sveltejs/vite-plugin-svelte": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/matter-js": "^0.19.0",
-    "@types/tmi.js": "^1.8.4",
-    "autoprefixer": "^10.4.14",
-    "gh-pages": "^6.3.0",
-    "mdsvex": "^0.12.6",
-    "postcss": "^8.5.24",
-    "prettier": "^3.1.0",
-    "prettier-plugin-svelte": "^3.2.6",
-    "shiki": "^0.14.4",
-    "svelte": "^5.55.7",
-    "tailwindcss": "^3.3.3",
-    "vite": "^6.4.2"
+    "@sveltejs/adapter-netlify": "^7.0.1",
+    "@sveltejs/kit": "^3.0.1",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/matter-js": "^0.20.2",
+    "@types/tmi.js": "^1.8.6",
+    "mdsvex": "^0.12.8",
+    "prettier": "^3.9.9",
+    "prettier-plugin-svelte": "^4.1.1",
+    "shiki": "^4.5.0",
+    "svelte": "^5.57.2",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.3"
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/dseg14-modern": "^5.0.7",
-    "@fontsource/inknut-antiqua": "^5.0.8",
-    "@fontsource/teko": "^5.0.9",
-    "cheerio": "^1.0.0",
-    "dexie": "^4.0.8",
-    "matter-js": "^0.19.0",
+    "@fontsource/dseg14-modern": "^5.3.0",
+    "@fontsource/inknut-antiqua": "^5.3.0",
+    "@fontsource/teko": "^5.3.0",
+    "cheerio": "^1.2.0",
+    "dexie": "^4.4.6",
+    "matter-js": "^0.20.0",
     "svelte-french-toast": "^2.0.0-alpha.0"
+  },
+  "overrides": {
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "^7.1.6"
+    }
   }
 }

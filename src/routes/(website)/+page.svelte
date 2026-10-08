@@ -1,5 +1,5 @@
 <script>
-  import CoinSpinner from "$lib/coin_spinner.svelte";
+  import CoinSpinner from "#lib/coin_spinner.svelte";
 </script>
 
 <svelte:head>
@@ -11,7 +11,7 @@
     <CoinSpinner />
   </div>
   <div
-    class="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-neutral-600 to-neutral-800 p-16 sm:curve"
+    class="flex-1 flex flex-col items-center justify-center bg-linear-to-r from-neutral-600 to-neutral-800 p-16 sm:curve"
   >
     <div class="sm:translate-x-1/4">
       <h1 class="glow text-4xl">TECHNICKEL</h1>

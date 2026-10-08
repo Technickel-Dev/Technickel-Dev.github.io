@@ -3,8 +3,8 @@
   import { onMount } from "svelte";
   import Wheel from "./wheel.svelte";
   import "@fontsource/dseg14-modern";
-  import { sleep } from "$lib/utils";
-  import CircularProgress from "$lib/circularProgress.svelte";
+  import { sleep } from "#lib/utils.ts";
+  import CircularProgress from "#lib/circularProgress.svelte";
   import type { Client } from "tmi.js";
 
   const DEFAULT_NAME = "None";

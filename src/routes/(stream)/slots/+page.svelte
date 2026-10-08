@@ -2,7 +2,7 @@
   import { page } from "$app/state";
   import { onMount } from "svelte";
   import Reel from "./reel.svelte";
-  import { sleep } from "$lib/utils";
+  import { sleep } from "#lib/utils.ts";
   import type { ChatUserstate, Client } from "tmi.js";
 
   // Slots Credits: Jos Faber https://codepen.io/josfabre/pen/abReBvP

@@ -1,6 +1,6 @@
 <!-- 100vh - 4rem is the same as screen size minus the nav -->
 <svg
-  class="max-h-[calc(100vh_-_4rem)]"
+  class="max-h-[calc(100vh-4rem)]"
   viewBox="0 0 2250 2250"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"

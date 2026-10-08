@@ -22,7 +22,7 @@
   <div class="bg-neutral-500 shadow-lg rounded-t-lg">
     <button
       onclick={() => (isOpen = !isOpen)}
-      class="w-full p-4 text-left bg-neutral-600 hover:bg-neutral-700 focus:outline-none rounded-t-lg"
+      class="w-full p-4 text-left bg-neutral-600 hover:bg-neutral-700 focus:outline-hidden rounded-t-lg"
     >
       <div class="flex items-center justify-between">
         {#await $totalPrice(+currency)}
